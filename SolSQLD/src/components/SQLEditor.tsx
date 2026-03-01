@@ -1,17 +1,17 @@
-import CodeMirror from '@uiw/react-codemirror'
-import { sql } from '@codemirror/lang-sql'
-import { oneDark } from '@codemirror/theme-one-dark'
-import { Play, Send } from 'lucide-react'
-import type { SQLResult } from '../types'
+import CodeMirror from '@uiw/react-codemirror';
+import { sql } from '@codemirror/lang-sql';
+import { oneDark } from '@codemirror/theme-one-dark';
+import { Play, Send } from 'lucide-react';
+import type { SQLResult } from '../types';
 
 interface SQLEditorProps {
-  value: string
-  onChange: (val: string) => void
-  onExecute: () => void
-  onSubmit?: () => void
-  result?: SQLResult | null
-  loading?: boolean
-  mode?: 'practice' | 'view'
+  value: string;
+  onChange: (val: string) => void;
+  onExecute: () => void;
+  onSubmit?: () => void;
+  result?: SQLResult | null;
+  loading?: boolean;
+  mode?: 'practice' | 'view';
 }
 
 export default function SQLEditor({
@@ -56,10 +56,10 @@ export default function SQLEditor({
           extensions={[sql()]}
           theme={oneDark}
           onChange={onChange}
-          onKeyDown={e => {
+          onKeyDown={(e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-              e.preventDefault()
-              onExecute()
+              e.preventDefault();
+              onExecute();
             }
           }}
           basicSetup={{ lineNumbers: true, foldGutter: false, autocompletion: true }}
@@ -77,16 +77,17 @@ export default function SQLEditor({
           </div>
 
           {result.error ? (
-            <div className="px-4 py-3 text-sm text-red-600 font-mono bg-red-50">
-              {result.error}
-            </div>
+            <div className="px-4 py-3 text-sm text-red-600 font-mono bg-red-50">{result.error}</div>
           ) : (
             <div className="overflow-x-auto max-h-60">
               <table className="w-full text-xs text-left">
                 <thead className="bg-slate-100 sticky top-0">
                   <tr>
-                    {result.columns.map(col => (
-                      <th key={col} className="px-4 py-2 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0">
+                    {result.columns.map((col) => (
+                      <th
+                        key={col}
+                        className="px-4 py-2 font-semibold text-slate-700 border-r border-slate-200 last:border-r-0"
+                      >
                         {col}
                       </th>
                     ))}
@@ -95,9 +96,16 @@ export default function SQLEditor({
                 <tbody>
                   {result.rows.map((row, i) => (
                     <tr key={i} className="border-t border-slate-100 hover:bg-slate-50">
-                      {result.columns.map(col => (
-                        <td key={col} className="px-4 py-2 font-mono text-slate-600 border-r border-slate-100 last:border-r-0 whitespace-nowrap">
-                          {row[col] === null ? <span className="text-slate-400 italic">NULL</span> : String(row[col])}
+                      {result.columns.map((col) => (
+                        <td
+                          key={col}
+                          className="px-4 py-2 font-mono text-slate-600 border-r border-slate-100 last:border-r-0 whitespace-nowrap"
+                        >
+                          {row[col] === null ? (
+                            <span className="text-slate-400 italic">NULL</span>
+                          ) : (
+                            String(row[col])
+                          )}
                         </td>
                       ))}
                     </tr>
@@ -109,5 +117,5 @@ export default function SQLEditor({
         </div>
       )}
     </div>
-  )
+  );
 }

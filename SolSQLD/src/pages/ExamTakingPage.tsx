@@ -1,14 +1,14 @@
-import { useState, useCallback } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { AlertTriangle } from 'lucide-react'
-import CountdownTimer from '../components/CountdownTimer'
-import Notepad from '../components/Notepad'
-import { logEvent } from '../utils/eventLogger'
-import { useAuth } from '../contexts/AuthContext'
-import { EXAM_PROBLEMS } from '../data/mockExam'
-import type { Problem } from '../types'
+import { useState, useCallback } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { AlertTriangle } from 'lucide-react';
+import CountdownTimer from '../components/CountdownTimer';
+import Notepad from '../components/Notepad';
+import { logEvent } from '../utils/eventLogger';
+import { useAuth } from '../contexts/AuthContext';
+import { EXAM_PROBLEMS } from '../data/mockExam';
+import type { Problem } from '../types';
 
-const EXAM_TIME_SECONDS = 90 * 60  // 90분
+const EXAM_TIME_SECONDS = 90 * 60; // 90분
 
 function ChoiceProblem({
   problem,
@@ -16,10 +16,10 @@ function ChoiceProblem({
   selected,
   onSelect,
 }: {
-  problem: Problem
-  index: number
-  selected?: string
-  onSelect: (val: string) => void
+  problem: Problem;
+  index: number;
+  selected?: string;
+  onSelect: (val: string) => void;
 }) {
   return (
     <div className="mb-8 break-inside-avoid">
@@ -29,7 +29,7 @@ function ChoiceProblem({
       </p>
       <div className="space-y-2 ml-4">
         {problem.options?.map((opt, oi) => {
-          const val = String(oi + 1)
+          const val = String(oi + 1);
           return (
             <label key={val} className="flex items-start gap-2 cursor-pointer group">
               <input
@@ -40,55 +40,60 @@ function ChoiceProblem({
                 onChange={() => onSelect(val)}
                 className="mt-0.5 w-4 h-4 text-primary-600 border-slate-300 focus:ring-primary-500"
               />
-              <span className={`text-sm leading-relaxed ${selected === val ? 'text-primary-700 font-medium' : 'text-slate-600 group-hover:text-slate-800'}`}>
+              <span
+                className={`text-sm leading-relaxed ${selected === val ? 'text-primary-700 font-medium' : 'text-slate-600 group-hover:text-slate-800'}`}
+              >
                 {oi + 1}) {opt}
               </span>
             </label>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
 
 export default function ExamTakingPage() {
-  const { id } = useParams<{ id: string }>()
-  const navigate = useNavigate()
-  const { user } = useAuth()
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
-  const [sessionId] = useState(crypto.randomUUID())
-  const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [sessionId] = useState(crypto.randomUUID());
+  const [answers, setAnswers] = useState<Record<string, string>>({});
   const [started] = useState(() => {
-    logEvent('exam_start', { examId: id, sessionId }, user?.id)
-    return true
-  })
-  const [showSubmitConfirm, setShowSubmitConfirm] = useState(false)
+    logEvent('exam_start', { examId: id, sessionId }, user?.id);
+    return true;
+  });
+  const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
 
-  const handleSelect = useCallback((problemId: string, val: string) => {
-    setAnswers(prev => {
-      const next = { ...prev, [problemId]: val }
-      logEvent('choice_select', { problemId, selected: val, examId: id }, user?.id)
-      return next
-    })
-  }, [id, user?.id])
+  const handleSelect = useCallback(
+    (problemId: string, val: string) => {
+      setAnswers((prev) => {
+        const next = { ...prev, [problemId]: val };
+        logEvent('choice_select', { problemId, selected: val, examId: id }, user?.id);
+        return next;
+      });
+    },
+    [id, user?.id]
+  );
 
   const handleSubmit = useCallback(() => {
     const score = EXAM_PROBLEMS.reduce((acc, p) => {
-      return answers[p.id] === p.answer ? acc + 2 : acc
-    }, 0)  // 50문항 × 2점 = 100점 만점
+      return answers[p.id] === p.answer ? acc + 2 : acc;
+    }, 0); // 50문항 × 2점 = 100점 만점
 
-    logEvent('exam_submit', { examId: id, sessionId, answers, score }, user?.id)
-    logEvent('stats_update', { examId: id, userId: user?.id, score }, user?.id)
+    logEvent('exam_submit', { examId: id, sessionId, answers, score }, user?.id);
+    logEvent('stats_update', { examId: id, userId: user?.id, score }, user?.id);
 
     navigate(`/exams/${id}/result`, {
       state: { score, answers, sessionId, problems: EXAM_PROBLEMS },
-    })
-  }, [answers, id, sessionId, user, navigate])
+    });
+  }, [answers, id, sessionId, user, navigate]);
 
-  const answeredCount = Object.keys(answers).length
-  const unanswered = EXAM_PROBLEMS.length - answeredCount
+  const answeredCount = Object.keys(answers).length;
+  const unanswered = EXAM_PROBLEMS.length - answeredCount;
 
-  if (!started) return null
+  if (!started) return null;
 
   return (
     <div className="min-h-screen bg-slate-200 py-6">
@@ -120,7 +125,9 @@ export default function ExamTakingPage() {
           <div className="w-a4 min-h-a4 bg-white shadow-xl mx-auto p-12 rounded-sm border border-slate-300">
             <div className="text-center mb-8 pb-4 border-b-2 border-sqld-navy">
               <h1 className="text-xl font-bold text-sqld-navy">SQLD 모의고사 {id}회</h1>
-              <p className="text-sm text-slate-500 mt-1">총 {EXAM_PROBLEMS.length}문항 · 제한시간 90분 · 60점 이상 합격</p>
+              <p className="text-sm text-slate-500 mt-1">
+                총 {EXAM_PROBLEMS.length}문항 · 제한시간 90분 · 60점 이상 합격
+              </p>
             </div>
 
             {EXAM_PROBLEMS.map((problem, index) => (
@@ -129,7 +136,7 @@ export default function ExamTakingPage() {
                 problem={problem}
                 index={index}
                 selected={answers[problem.id]}
-                onSelect={val => handleSelect(problem.id, val)}
+                onSelect={(val) => handleSelect(problem.id, val)}
               />
             ))}
           </div>
@@ -171,5 +178,5 @@ export default function ExamTakingPage() {
         </div>
       )}
     </div>
-  )
+  );
 }

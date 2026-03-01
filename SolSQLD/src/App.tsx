@@ -1,29 +1,29 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AuthProvider } from './contexts/AuthContext'
-import Header from './components/Header'
-import AuthModal from './components/AuthModal'
-import MainPage from './pages/MainPage'
-import DashboardPage from './pages/DashboardPage'
-import ExamListPage from './pages/ExamListPage'
-import ExamTakingPage from './pages/ExamTakingPage'
-import ExamResultPage from './pages/ExamResultPage'
-import SQLPracticeListPage from './pages/SQLPracticeListPage'
-import SQLPracticePage from './pages/SQLPracticePage'
-import type { AuthMode } from './types'
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import Header from './components/Header';
+import AuthModal from './components/AuthModal';
+import MainPage from './pages/MainPage';
+import DashboardPage from './pages/DashboardPage';
+import ExamListPage from './pages/ExamListPage';
+import ExamTakingPage from './pages/ExamTakingPage';
+import ExamResultPage from './pages/ExamResultPage';
+import SQLPracticeListPage from './pages/SQLPracticeListPage';
+import SQLPracticePage from './pages/SQLPracticePage';
+import type { AuthMode } from './types';
 
 function AppShell() {
   const [authModal, setAuthModal] = useState<{ open: boolean; mode: AuthMode }>({
     open: false,
     mode: 'login',
-  })
+  });
 
   function openAuth(mode: AuthMode) {
-    setAuthModal({ open: true, mode })
+    setAuthModal({ open: true, mode });
   }
 
   function closeAuth() {
-    setAuthModal(prev => ({ ...prev, open: false }))
+    setAuthModal((prev) => ({ ...prev, open: false }));
   }
 
   return (
@@ -56,11 +56,11 @@ function AppShell() {
         <AuthModal
           mode={authModal.mode}
           onClose={closeAuth}
-          onModeChange={mode => setAuthModal({ open: true, mode })}
+          onModeChange={(mode) => setAuthModal({ open: true, mode })}
         />
       )}
     </>
-  )
+  );
 }
 
 export default function App() {
@@ -70,5 +70,5 @@ export default function App() {
         <AppShell />
       </AuthProvider>
     </BrowserRouter>
-  )
+  );
 }
