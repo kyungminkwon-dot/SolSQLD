@@ -5,7 +5,7 @@ import CountdownTimer from '../components/CountdownTimer';
 import Notepad from '../components/Notepad';
 import { logEvent } from '../utils/eventLogger';
 import { useAuth } from '../contexts/AuthContext';
-import { EXAM_PROBLEMS } from '../data/mockExam';
+import { getExamProblems } from '../data/exams';
 import type { Problem } from '../types';
 
 const EXAM_TIME_SECONDS = 90 * 60; // 90분
@@ -58,6 +58,8 @@ export default function ExamTakingPage() {
   const navigate = useNavigate();
   const { user } = useAuth();
 
+  const problems = getExamProblems(id ?? '1');
+
   const [sessionId] = useState(crypto.randomUUID());
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [started] = useState(() => {
@@ -78,7 +80,7 @@ export default function ExamTakingPage() {
   );
 
   const handleSubmit = useCallback(() => {
-    const score = EXAM_PROBLEMS.reduce((acc, p) => {
+    const score = problems.reduce((acc, p) => {
       return answers[p.id] === p.answer ? acc + 2 : acc;
     }, 0); // 50문항 × 2점 = 100점 만점
 
@@ -86,12 +88,12 @@ export default function ExamTakingPage() {
     logEvent('stats_update', { examId: id, userId: user?.id, score }, user?.id);
 
     navigate(`/exams/${id}/result`, {
-      state: { score, answers, sessionId, problems: EXAM_PROBLEMS },
+      state: { score, answers, sessionId, problems },
     });
-  }, [answers, id, sessionId, user, navigate]);
+  }, [answers, id, sessionId, user, navigate, problems]);
 
   const answeredCount = Object.keys(answers).length;
-  const unanswered = EXAM_PROBLEMS.length - answeredCount;
+  const unanswered = problems.length - answeredCount;
 
   if (!started) return null;
 
@@ -103,7 +105,7 @@ export default function ExamTakingPage() {
           <div className="text-sm font-semibold text-sqld-navy">
             SQLD 모의고사 {id}회 &nbsp;
             <span className="text-slate-400 font-normal">
-              {answeredCount}/{EXAM_PROBLEMS.length}문제 답변
+              {answeredCount}/{problems.length}문제 답변
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -126,11 +128,11 @@ export default function ExamTakingPage() {
             <div className="text-center mb-8 pb-4 border-b-2 border-sqld-navy">
               <h1 className="text-xl font-bold text-sqld-navy">SQLD 모의고사 {id}회</h1>
               <p className="text-sm text-slate-500 mt-1">
-                총 {EXAM_PROBLEMS.length}문항 · 제한시간 90분 · 60점 이상 합격
+                총 {problems.length}문항 · 제한시간 90분 · 60점 이상 합격
               </p>
             </div>
 
-            {EXAM_PROBLEMS.map((problem, index) => (
+            {problems.map((problem, index) => (
               <ChoiceProblem
                 key={problem.id}
                 problem={problem}
