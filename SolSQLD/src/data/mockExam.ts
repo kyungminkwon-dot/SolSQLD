@@ -1,17 +1,19 @@
-import type { Problem } from '../types'
+import type { Problem } from '../types';
 
 // 목업 문제 데이터 (50문항 중 일부 샘플)
 export const MOCK_PROBLEMS: Problem[] = [
   {
     id: 'p1',
     title: 'SELECT 문 기본',
-    description: '다음 SQL 문에서 출력되는 결과로 올바른 것은?\n\nSELECT EMPNO, ENAME, SAL * 12 AS ANNUAL_SAL\nFROM EMP\nWHERE DEPTNO = 10\nORDER BY SAL DESC;',
+    description:
+      '다음 SQL 문에서 출력되는 결과로 올바른 것은?\n\nSELECT EMPNO, ENAME, SAL * 12 AS ANNUAL_SAL\nFROM EMP\nWHERE DEPTNO = 10\nORDER BY SAL DESC;',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DML',
     correctRate: 85,
     answer: '2',
-    explanation: 'SAL에 12를 곱한 연봉(ANNUAL_SAL)을 조회하며, DEPTNO가 10인 사원을 급여 내림차순으로 정렬합니다.',
+    explanation:
+      'SAL에 12를 곱한 연봉(ANNUAL_SAL)을 조회하며, DEPTNO가 10인 사원을 급여 내림차순으로 정렬합니다.',
     options: [
       '모든 사원의 연봉을 오름차순으로 출력한다.',
       '부서번호 10인 사원의 연봉을 급여 내림차순으로 출력한다.',
@@ -29,7 +31,8 @@ export const MOCK_PROBLEMS: Problem[] = [
     category: '함수',
     correctRate: 78,
     answer: '3',
-    explanation: 'NVL(expr1, expr2)는 expr1이 NULL이면 expr2를 반환하고, NULL이 아니면 expr1을 반환합니다.',
+    explanation:
+      'NVL(expr1, expr2)는 expr1이 NULL이면 expr2를 반환하고, NULL이 아니면 expr1을 반환합니다.',
     options: [
       'NULL 값을 0으로만 변환한다.',
       'NULL이 아닌 첫 번째 값을 반환한다.',
@@ -41,7 +44,8 @@ export const MOCK_PROBLEMS: Problem[] = [
   {
     id: 'p3',
     title: 'GROUP BY 절',
-    description: '다음 SQL의 실행 결과에 대한 설명으로 올바른 것은?\n\nSELECT DEPTNO, COUNT(*), AVG(SAL)\nFROM EMP\nGROUP BY DEPTNO\nHAVING AVG(SAL) > 2000;',
+    description:
+      '다음 SQL의 실행 결과에 대한 설명으로 올바른 것은?\n\nSELECT DEPTNO, COUNT(*), AVG(SAL)\nFROM EMP\nGROUP BY DEPTNO\nHAVING AVG(SAL) > 2000;',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DML',
@@ -92,14 +96,14 @@ export const MOCK_PROBLEMS: Problem[] = [
     ],
     points: 10,
   },
-]
+];
 
 // 50문항 채우기 (실제 서비스에서는 API 연동)
 export const EXAM_PROBLEMS: Problem[] = Array.from({ length: 50 }, (_, i) => {
-  const base = MOCK_PROBLEMS[i % MOCK_PROBLEMS.length]
+  const base = MOCK_PROBLEMS[i % MOCK_PROBLEMS.length];
   return {
     ...base,
     id: `exam_p${i + 1}`,
     title: `${i + 1}. ${base.title}`,
-  }
-})
+  };
+});

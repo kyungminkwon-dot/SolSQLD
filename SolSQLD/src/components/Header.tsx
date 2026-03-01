@@ -1,35 +1,46 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { Database, User, LogOut } from 'lucide-react'
-import { useAuth } from '../contexts/AuthContext'
+import { Link, useNavigate } from 'react-router-dom';
+import { Database, User, LogOut } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
 interface HeaderProps {
-  onAuthClick: (mode: 'login' | 'signup') => void
+  onAuthClick: (mode: 'login' | 'signup') => void;
 }
 
 export default function Header({ onAuthClick }: HeaderProps) {
-  const { user, isLoggedIn, logout } = useAuth()
-  const navigate = useNavigate()
+  const { user, isLoggedIn, logout } = useAuth();
+  const navigate = useNavigate();
 
   function handleLogout() {
-    logout()
-    navigate('/')
+    logout();
+    navigate('/');
   }
 
   return (
     <header className="sticky top-0 z-40 bg-sqld-navy border-b border-slate-700 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* 로고 */}
-        <Link to="/" className="flex items-center gap-2 text-white font-bold text-xl hover:opacity-80 transition-opacity">
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-white font-bold text-xl hover:opacity-80 transition-opacity"
+        >
           <Database className="w-6 h-6 text-primary-500" />
-          <span>Sol<span className="text-primary-500">SQLD</span></span>
+          <span>
+            Sol<span className="text-primary-500">SQLD</span>
+          </span>
         </Link>
 
         {/* 네비게이션 */}
         <nav className="hidden md:flex items-center gap-6 text-sm text-slate-300">
-          <Link to="/exams" className="hover:text-white transition-colors">모의고사</Link>
-          <Link to="/sql-practice" className="hover:text-white transition-colors">SQL 실습</Link>
+          <Link to="/exams" className="hover:text-white transition-colors">
+            모의고사
+          </Link>
+          <Link to="/sql-practice" className="hover:text-white transition-colors">
+            SQL 실습
+          </Link>
           {isLoggedIn && (
-            <Link to="/dashboard" className="hover:text-white transition-colors">대시보드</Link>
+            <Link to="/dashboard" className="hover:text-white transition-colors">
+              대시보드
+            </Link>
           )}
         </nav>
 
@@ -68,5 +79,5 @@ export default function Header({ onAuthClick }: HeaderProps) {
         </div>
       </div>
     </header>
-  )
+  );
 }
