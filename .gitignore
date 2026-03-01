@@ -33,6 +33,8 @@ build/
 # ===========================
 .claude/settings.local.json
 SolSQLD/.claude/settings.local.json
+CLAUDE.md
+SolSQLD/CLAUDE.md
 
 # ===========================
 # IDE
