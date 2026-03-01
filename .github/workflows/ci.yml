@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  check:
+    name: Format + Lint + Type Check
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: SolSQLD
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: SolSQLD/package-lock.json
+
+      - run: npm ci
+
+      - name: Prettier check
+        run: npx prettier --check .
+
+      - name: ESLint
+        run: npx eslint .
+
+      - name: TypeScript type check
+        run: npx tsc --noEmit

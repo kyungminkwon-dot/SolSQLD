@@ -1,17 +1,17 @@
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { Trophy, XCircle, CheckCircle, RotateCcw } from 'lucide-react'
-import type { Problem } from '../types'
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Trophy, XCircle, CheckCircle, RotateCcw } from 'lucide-react';
+import type { Problem } from '../types';
 
 interface ResultState {
-  score: number
-  answers: Record<string, string>
-  problems: Problem[]
+  score: number;
+  answers: Record<string, string>;
+  problems: Problem[];
 }
 
 export default function ExamResultPage() {
-  const { id } = useParams<{ id: string }>()
-  const navigate = useNavigate()
-  const { state } = useLocation() as { state: ResultState | null }
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { state } = useLocation() as { state: ResultState | null };
 
   if (!state) {
     return (
@@ -23,20 +23,22 @@ export default function ExamResultPage() {
           </button>
         </div>
       </div>
-    )
+    );
   }
 
-  const { score, answers, problems } = state
-  const isPassed = score >= 60
+  const { score, answers, problems } = state;
+  const isPassed = score >= 60;
 
-  const correctList = problems.filter(p => answers[p.id] === p.answer)
-  const wrongList = problems.filter(p => answers[p.id] !== p.answer)
+  const correctList = problems.filter((p) => answers[p.id] === p.answer);
+  const wrongList = problems.filter((p) => answers[p.id] !== p.answer);
 
   return (
     <div className="min-h-screen bg-slate-50 py-10">
       <div className="max-w-3xl mx-auto px-4">
         {/* 결과 헤더 */}
-        <div className={`rounded-2xl p-8 text-center mb-8 ${isPassed ? 'bg-emerald-600' : 'bg-red-500'} text-white shadow-lg`}>
+        <div
+          className={`rounded-2xl p-8 text-center mb-8 ${isPassed ? 'bg-emerald-600' : 'bg-red-500'} text-white shadow-lg`}
+        >
           <div className="flex justify-center mb-4">
             {isPassed ? (
               <Trophy className="w-16 h-16 text-yellow-300" />
@@ -44,13 +46,11 @@ export default function ExamResultPage() {
               <XCircle className="w-16 h-16 text-white/80" />
             )}
           </div>
-          <h1 className="text-3xl font-extrabold mb-2">
-            {isPassed ? '합격' : '불합격'}
-          </h1>
+          <h1 className="text-3xl font-extrabold mb-2">{isPassed ? '합격' : '불합격'}</h1>
           <p className="text-5xl font-black mb-2">{score}점</p>
           <p className="text-sm opacity-80">
-            {isPassed ? '60점 이상 합격' : '60점 미만 불합격'} &nbsp;|&nbsp;
-            정답 {correctList.length}문제 / 오답 {wrongList.length}문제
+            {isPassed ? '60점 이상 합격' : '60점 미만 불합격'} &nbsp;|&nbsp; 정답{' '}
+            {correctList.length}문제 / 오답 {wrongList.length}문제
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export default function ExamResultPage() {
             </div>
           ) : (
             <ul className="divide-y divide-slate-100">
-              {wrongList.map((problem, i) => (
+              {wrongList.map((problem) => (
                 <li key={problem.id} className="px-6 py-5">
                   <div className="flex items-start gap-2 mb-2">
                     <XCircle className="w-4 h-4 text-red-400 mt-0.5 shrink-0" />
@@ -82,8 +82,8 @@ export default function ExamResultPage() {
                         : '미답변'}
                     </p>
                     <p>
-                      <span className="text-emerald-600 font-semibold">정답:</span>{' '}
-                      {problem.answer}번) {problem.options?.[Number(problem.answer) - 1]}
+                      <span className="text-emerald-600 font-semibold">정답:</span> {problem.answer}
+                      번) {problem.options?.[Number(problem.answer) - 1]}
                     </p>
                     <p className="mt-2 text-slate-600 leading-relaxed border-l-2 border-primary-300 pl-3">
                       {problem.explanation}
@@ -113,5 +113,5 @@ export default function ExamResultPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

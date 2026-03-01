@@ -1,20 +1,23 @@
-import { useState, useCallback } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft, CheckCircle, XCircle } from 'lucide-react'
-import SQLEditor from '../components/SQLEditor'
-import { logEvent } from '../utils/eventLogger'
-import { useAuth } from '../contexts/AuthContext'
-import type { SQLResult } from '../types'
+import { useState, useCallback } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { ArrowLeft, CheckCircle, XCircle } from 'lucide-react';
+import SQLEditor from '../components/SQLEditor';
+import { logEvent } from '../utils/eventLogger';
+import { useAuth } from '../contexts/AuthContext';
+import type { SQLResult } from '../types';
 
 // 목업 SQL 문제 상세
-const SQL_PROBLEM_DETAIL: Record<string, {
-  id: string
-  title: string
-  description: string
-  schema: string
-  answer: string
-  hint: string
-}> = {
+const SQL_PROBLEM_DETAIL: Record<
+  string,
+  {
+    id: string;
+    title: string;
+    description: string;
+    schema: string;
+    answer: string;
+    hint: string;
+  }
+> = {
   sql2: {
     id: 'sql2',
     title: 'GROUP BY와 HAVING 절',
@@ -27,13 +30,18 @@ HAVING AVG(SAL) > 2000
 ORDER BY AVG_SAL DESC`,
     hint: 'GROUP BY → HAVING 순서로 작성하고, 집계 함수(AVG)는 SELECT와 HAVING에서 사용할 수 있습니다.',
   },
-}
+};
 
 // 더미 SQL 실행 함수 (실제 서비스에서는 백엔드 API 호출)
 function executeMockSQL(query: string): SQLResult {
-  const normalized = query.trim().toUpperCase()
+  const normalized = query.trim().toUpperCase();
   if (normalized.includes('ERROR') || normalized === '') {
-    return { columns: [], rows: [], executionTimeMs: 12, error: 'ORA-00942: table or view does not exist' }
+    return {
+      columns: [],
+      rows: [],
+      executionTimeMs: 12,
+      error: 'ORA-00942: table or view does not exist',
+    };
   }
   return {
     columns: ['DEPTNO', 'AVG_SAL'],
@@ -42,54 +50,58 @@ function executeMockSQL(query: string): SQLResult {
       { DEPTNO: 30, AVG_SAL: 2850 },
     ],
     executionTimeMs: Math.floor(Math.random() * 100) + 20,
-  }
+  };
 }
 
 export default function SQLPracticePage() {
-  const { id } = useParams<{ id: string }>()
-  const navigate = useNavigate()
-  const { user } = useAuth()
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const { user } = useAuth();
 
-  const problem = id ? SQL_PROBLEM_DETAIL[id] : null
-  const [query, setQuery] = useState('')
-  const [result, setResult] = useState<SQLResult | null>(null)
-  const [loading, setLoading] = useState(false)
-  const [submitResult, setSubmitResult] = useState<'correct' | 'wrong' | null>(null)
-  const [showHint, setShowHint] = useState(false)
+  const problem = id ? SQL_PROBLEM_DETAIL[id] : null;
+  const [query, setQuery] = useState('');
+  const [result, setResult] = useState<SQLResult | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [submitResult, setSubmitResult] = useState<'correct' | 'wrong' | null>(null);
+  const [showHint, setShowHint] = useState(false);
 
   const handleExecute = useCallback(() => {
-    if (!query.trim()) return
-    setLoading(true)
-    logEvent('sql_execute', { problemId: id, query }, user?.id)
+    if (!query.trim()) return;
+    setLoading(true);
+    logEvent('sql_execute', { problemId: id, query }, user?.id);
     setTimeout(() => {
-      setResult(executeMockSQL(query))
-      setLoading(false)
-    }, 300)
-  }, [query, id, user?.id])
+      setResult(executeMockSQL(query));
+      setLoading(false);
+    }, 300);
+  }, [query, id, user?.id]);
 
   const handleSubmit = useCallback(() => {
-    if (!problem || !query.trim()) return
+    if (!problem || !query.trim()) return;
     // 간단한 정답 비교 (실제 서비스에서는 백엔드 비교)
-    const isCorrect = query.trim().toUpperCase().includes('AVG(SAL)') &&
-                      query.trim().toUpperCase().includes('HAVING')
-    logEvent('sql_submit', { problemId: id, query, isCorrect }, user?.id)
+    const isCorrect =
+      query.trim().toUpperCase().includes('AVG(SAL)') &&
+      query.trim().toUpperCase().includes('HAVING');
+    logEvent('sql_submit', { problemId: id, query, isCorrect }, user?.id);
     if (isCorrect) {
-      logEvent('points_update', { userId: user?.id, delta: 10 }, user?.id)
+      logEvent('points_update', { userId: user?.id, delta: 10 }, user?.id);
     }
-    setSubmitResult(isCorrect ? 'correct' : 'wrong')
-  }, [query, problem, id, user?.id])
+    setSubmitResult(isCorrect ? 'correct' : 'wrong');
+  }, [query, problem, id, user?.id]);
 
   if (!problem) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
         <div className="text-center">
           <p className="text-slate-500 mb-4">문제를 찾을 수 없습니다. (현재 sql2 문제만 지원)</p>
-          <button onClick={() => navigate('/sql-practice')} className="text-primary-600 hover:underline">
+          <button
+            onClick={() => navigate('/sql-practice')}
+            className="text-primary-600 hover:underline"
+          >
             목록으로
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -117,7 +129,7 @@ export default function SQLPracticePage() {
             </div>
 
             <button
-              onClick={() => setShowHint(v => !v)}
+              onClick={() => setShowHint((v) => !v)}
               className="text-xs text-primary-600 hover:underline"
             >
               {showHint ? '힌트 숨기기' : '힌트 보기'}
@@ -130,15 +142,21 @@ export default function SQLPracticePage() {
 
             {/* 제출 결과 */}
             {submitResult && (
-              <div className={`mt-4 flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold ${
-                submitResult === 'correct'
-                  ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
-                  : 'bg-red-50 text-red-600 border border-red-200'
-              }`}>
+              <div
+                className={`mt-4 flex items-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold ${
+                  submitResult === 'correct'
+                    ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                    : 'bg-red-50 text-red-600 border border-red-200'
+                }`}
+              >
                 {submitResult === 'correct' ? (
-                  <><CheckCircle className="w-5 h-5" /> 정답입니다! +10pt 획득</>
+                  <>
+                    <CheckCircle className="w-5 h-5" /> 정답입니다! +10pt 획득
+                  </>
                 ) : (
-                  <><XCircle className="w-5 h-5" /> 오답입니다. 다시 시도해보세요.</>
+                  <>
+                    <XCircle className="w-5 h-5" /> 오답입니다. 다시 시도해보세요.
+                  </>
                 )}
               </div>
             )}
@@ -159,5 +177,5 @@ export default function SQLPracticePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }
