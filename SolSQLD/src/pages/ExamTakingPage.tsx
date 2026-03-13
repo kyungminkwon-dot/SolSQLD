@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { AlertTriangle, ChevronLeft, ChevronRight, Database } from 'lucide-react';
 import CountdownTimer from '../components/CountdownTimer';
 import Notepad from '../components/Notepad';
 import { logEvent } from '../utils/eventLogger';
@@ -70,6 +70,7 @@ export default function ExamTakingPage() {
     return true;
   });
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
+  const [exitTarget, setExitTarget] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
 
   const totalPages = Math.ceil(problems.length / PROBLEMS_PER_PAGE);
@@ -117,9 +118,38 @@ export default function ExamTakingPage() {
   if (!started) return null;
 
   return (
-    <div className="min-h-screen bg-slate-200 py-6">
-      {/* 상단 고정 바 */}
-      <div className="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-sm">
+    <div className="min-h-screen bg-slate-200">
+      {/* 글로벌 네비게이션 바 */}
+      <div className="sticky top-0 z-40 bg-sqld-navy border-b border-slate-700 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 h-12 flex items-center justify-between">
+          <button
+            onClick={() => setExitTarget('/')}
+            className="flex items-center gap-2 text-white font-bold text-lg hover:opacity-80 transition-opacity"
+          >
+            <Database className="w-5 h-5 text-primary-500" />
+            <span>
+              Sol<span className="text-primary-500">SQLD</span>
+            </span>
+          </button>
+          <nav className="flex items-center gap-6 text-sm text-slate-300">
+            <button
+              onClick={() => setExitTarget('/exams')}
+              className="hover:text-white transition-colors"
+            >
+              모의고사
+            </button>
+            <button
+              onClick={() => setExitTarget('/sql-practice')}
+              className="hover:text-white transition-colors"
+            >
+              SQL 실습
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      {/* 시험 정보 바 */}
+      <div className="sticky top-12 z-30 bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="text-sm font-semibold text-sqld-navy">
             SQLD 모의고사 {id}회 &nbsp;
@@ -219,7 +249,7 @@ export default function ExamTakingPage() {
         </div>
 
         {/* 사이드 메모장 */}
-        <div className="w-64 shrink-0 sticky top-20 self-start h-[600px]">
+        <div className="w-64 shrink-0 sticky top-32 self-start h-[600px]">
           <Notepad examSessionId={sessionId} userId={user?.id} />
         </div>
       </div>
@@ -248,6 +278,31 @@ export default function ExamTakingPage() {
                 className="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2.5 rounded-lg text-sm transition-colors"
               >
                 제출
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 이탈 확인 모달 */}
+      {exitTarget && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="bg-white rounded-2xl p-8 shadow-2xl max-w-sm w-full mx-4">
+            <h3 className="text-lg font-bold text-sqld-navy mb-2">시험을 나가시겠습니까?</h3>
+            <p className="text-sm text-slate-500 mb-1">현재까지 선택한 답안은 저장되지 않으며,</p>
+            <p className="text-sm text-slate-500 mb-6">시험 시간은 계속 진행됩니다.</p>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setExitTarget(null)}
+                className="flex-1 border border-slate-200 text-slate-600 hover:bg-slate-50 font-semibold py-2.5 rounded-lg text-sm transition-colors"
+              >
+                계속 풀기
+              </button>
+              <button
+                onClick={() => navigate(exitTarget)}
+                className="flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 rounded-lg text-sm transition-colors"
+              >
+                나가기
               </button>
             </div>
           </div>
