@@ -51,8 +51,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
   {
     id: 'exam6_p3',
     title: '3. 반정규화 적용 기준',
-    description:
-      '다음 중 반정규화(Denormalization)를 적용하기에 가장 적절한 상황은?',
+    description: '다음 중 반정규화(Denormalization)를 적용하기에 가장 적절한 상황은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '데이터모델링',
@@ -100,12 +99,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       '외래키의 참조 무결성 액션 종류: CASCADE - 부모 삭제 시 자식도 함께 삭제, SET NULL - 부모 삭제 시 자식의 FK 컬럼을 NULL로 설정, SET DEFAULT - 부모 삭제 시 자식의 FK 컬럼을 DEFAULT 값으로 설정, NO ACTION/RESTRICT - 자식이 존재하면 부모 삭제를 거부. SET NULL은 FK 컬럼이 NULL을 허용해야 사용 가능합니다.',
-    options: [
-      'CASCADE',
-      'NO ACTION',
-      'SET NULL',
-      'SET DEFAULT',
-    ],
+    options: ['CASCADE', 'NO ACTION', 'SET NULL', 'SET DEFAULT'],
     points: 10,
   },
 
@@ -133,8 +127,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
   {
     id: 'exam6_p7',
     title: '7. 제4정규형과 다중값 종속',
-    description:
-      '제4정규형(4NF)에서 제거하는 종속 유형으로 올바른 것은?',
+    description: '제4정규형(4NF)에서 제거하는 종속 유형으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '정규화',
@@ -153,8 +146,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
   {
     id: 'exam6_p8',
     title: '8. 반정규화와 데이터 무결성',
-    description:
-      '반정규화를 적용할 때 데이터 무결성을 유지하기 위한 방법으로 올바르지 않은 것은?',
+    description: '반정규화를 적용할 때 데이터 무결성을 유지하기 위한 방법으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '정규화',
@@ -194,7 +186,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p10',
     title: '10. 1NF 위반 사례',
     description:
-      '다음 테이블에서 제1정규형(1NF)을 위반하는 항목은?\n\n학생(학번, 이름, 수강과목목록, 연락처)\n\n수강과목목록: \'데이터베이스, 알고리즘, 네트워크\'와 같이 콤마로 구분된 값이 하나의 컬럼에 저장됨',
+      "다음 테이블에서 제1정규형(1NF)을 위반하는 항목은?\n\n학생(학번, 이름, 수강과목목록, 연락처)\n\n수강과목목록: '데이터베이스, 알고리즘, 네트워크'와 같이 콤마로 구분된 값이 하나의 컬럼에 저장됨",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '정규화',
@@ -226,12 +218,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'CROSS JOIN(카티시안 곱)은 두 테이블의 모든 행의 조합을 반환합니다. A 테이블의 각 행이 B 테이블의 모든 행과 결합되므로, 결과 행 수는 A의 행 수 × B의 행 수 = 5 × 4 = 20행이 됩니다. CROSS JOIN은 조인 조건이 없으므로 WHERE 절이나 ON 절 없이 모든 조합이 생성됩니다.',
-    options: [
-      '9행 (5 + 4)',
-      '20행 (5 × 4)',
-      '5행 (A 테이블 행 수)',
-      '1행 (집계 결과)',
-    ],
+    options: ['9행 (5 + 4)', '20행 (5 × 4)', '5행 (A 테이블 행 수)', '1행 (집계 결과)'],
     points: 10,
   },
   {
@@ -277,8 +264,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
   {
     id: 'exam6_p14',
     title: '14. NATURAL JOIN의 특성',
-    description:
-      '다음 중 NATURAL JOIN에 대한 설명으로 올바르지 않은 것은?',
+    description: '다음 중 NATURAL JOIN에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -298,7 +284,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p15',
     title: '15. 다중 테이블 JOIN 순서',
     description:
-      '3개 테이블을 조인하는 다음 SQL에서 괄호로 표현한 조인 순서가 성능에 미치는 영향으로 올바른 것은?\n\nSELECT *\nFROM A\nJOIN B ON A.ID = B.A_ID\nJOIN C ON B.ID = C.B_ID\nWHERE A.STATUS = \'ACTIVE\';',
+      "3개 테이블을 조인하는 다음 SQL에서 괄호로 표현한 조인 순서가 성능에 미치는 영향으로 올바른 것은?\n\nSELECT *\nFROM A\nJOIN B ON A.ID = B.A_ID\nJOIN C ON B.ID = C.B_ID\nWHERE A.STATUS = 'ACTIVE';",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'JOIN',
@@ -360,27 +346,22 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p18',
     title: '18. CASE WHEN의 활용',
     description:
-      '다음 SQL의 결과로 올바른 것은?\n\nSELECT CASE\n         WHEN 100 > 200 THEN \'A\'\n         WHEN 100 = 100 THEN \'B\'\n         WHEN 100 < 200 THEN \'C\'\n         ELSE \'D\'\n       END AS RESULT\nFROM DUAL;',
+      "다음 SQL의 결과로 올바른 것은?\n\nSELECT CASE\n         WHEN 100 > 200 THEN 'A'\n         WHEN 100 = 100 THEN 'B'\n         WHEN 100 < 200 THEN 'C'\n         ELSE 'D'\n       END AS RESULT\nFROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
     correctRate: 80,
     answer: '2',
     explanation:
-      'CASE WHEN은 위에서부터 순서대로 조건을 평가하여 처음으로 TRUE인 조건의 THEN 결과를 반환합니다. 첫 번째 조건(100 > 200)은 FALSE이므로 건너뜁니다. 두 번째 조건(100 = 100)이 TRUE이므로 \'B\'를 반환하고 CASE 문이 종료됩니다. 세 번째 조건은 평가되지 않습니다.',
-    options: [
-      'A',
-      'B',
-      'C',
-      'D',
-    ],
+      "CASE WHEN은 위에서부터 순서대로 조건을 평가하여 처음으로 TRUE인 조건의 THEN 결과를 반환합니다. 첫 번째 조건(100 > 200)은 FALSE이므로 건너뜁니다. 두 번째 조건(100 = 100)이 TRUE이므로 'B'를 반환하고 CASE 문이 종료됩니다. 세 번째 조건은 평가되지 않습니다.",
+    options: ['A', 'B', 'C', 'D'],
     points: 10,
   },
   {
     id: 'exam6_p19',
     title: '19. 문자열 함수 조합',
     description:
-      '다음 SQL의 결과로 올바른 것은?\n\nSELECT SUBSTR(REPLACE(\'HELLO WORLD\', \'WORLD\', \'SQL\'), 7)\nFROM DUAL;',
+      "다음 SQL의 결과로 올바른 것은?\n\nSELECT SUBSTR(REPLACE('HELLO WORLD', 'WORLD', 'SQL'), 7)\nFROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
@@ -388,12 +369,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       "단계별 처리: 1) REPLACE('HELLO WORLD', 'WORLD', 'SQL') → 'HELLO SQL' (WORLD를 SQL로 교체). 2) SUBSTR('HELLO SQL', 7) → 7번째 위치부터 끝까지 추출. 'HELLO SQL'에서 H=1, E=2, L=3, L=4, O=5, 공백=6, S=7이므로 7번째부터는 'SQL'이 됩니다.",
-    options: [
-      'WORLD',
-      'HELLO',
-      'SQL',
-      'HELLO SQL',
-    ],
+    options: ['WORLD', 'HELLO', 'SQL', 'HELLO SQL'],
     points: 10,
   },
   {
@@ -408,12 +384,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'MONTHS_BETWEEN(date1, date2)는 두 날짜 사이의 개월 수를 반환합니다. 2024-03-15부터 2022-01-01까지: 2022-01 → 2024-03은 2년 2개월 + 14일 = 약 26.46개월. TRUNC는 소수점을 버리므로 결과는 26이 됩니다. 정확히는 (2024-2022)×12 + (3-1) = 24 + 2 = 26개월에 일수 차이가 추가됩니다.',
-    options: [
-      '25',
-      '26',
-      '27',
-      '28',
-    ],
+    options: ['25', '26', '27', '28'],
     points: 10,
   },
   {
@@ -448,12 +419,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       "TO_DATE('20240315', 'YYYYMMDD')는 문자열 '20240315'를 날짜 타입으로 변환합니다. TO_CHAR(날짜, 'YYYY-MM-DD')는 날짜를 'YYYY-MM-DD' 형식의 문자열로 변환합니다. 따라서 최종 결과는 '2024-03-15'입니다.",
-    options: [
-      "'20240315'",
-      "'2024/03/15'",
-      "'20240315'",
-      "'2024-03-15'",
-    ],
+    options: ["'20240315'", "'2024/03/15'", "'20240315'", "'2024-03-15'"],
     points: 10,
   },
 
@@ -462,7 +428,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p23',
     title: '23. MERGE 문의 MATCHED 절',
     description:
-      '다음 MERGE 문에서 MERGE INTO TARGET T 실행 후 TARGET 테이블의 결과로 올바른 것은?\n\nTARGET 테이블 초기 데이터:\nID=1, VAL=\'OLD\'\nID=2, VAL=\'OLD\'\n\nSOURCE 테이블 데이터:\nID=1, VAL=\'NEW\'\nID=3, VAL=\'INSERT\'\n\nMERGE INTO TARGET T\nUSING SOURCE S\n  ON (T.ID = S.ID)\nWHEN MATCHED THEN\n  UPDATE SET T.VAL = S.VAL\nWHEN NOT MATCHED THEN\n  INSERT (ID, VAL) VALUES (S.ID, S.VAL);',
+      "다음 MERGE 문에서 MERGE INTO TARGET T 실행 후 TARGET 테이블의 결과로 올바른 것은?\n\nTARGET 테이블 초기 데이터:\nID=1, VAL='OLD'\nID=2, VAL='OLD'\n\nSOURCE 테이블 데이터:\nID=1, VAL='NEW'\nID=3, VAL='INSERT'\n\nMERGE INTO TARGET T\nUSING SOURCE S\n  ON (T.ID = S.ID)\nWHEN MATCHED THEN\n  UPDATE SET T.VAL = S.VAL\nWHEN NOT MATCHED THEN\n  INSERT (ID, VAL) VALUES (S.ID, S.VAL);",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'DML',
@@ -482,7 +448,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p24',
     title: '24. MERGE WHEN MATCHED DELETE',
     description:
-      '다음 MERGE 문에서 DELETE 절의 동작으로 올바른 것은?\n\nMERGE INTO TARGET T\nUSING SOURCE S\n  ON (T.ID = S.ID)\nWHEN MATCHED THEN\n  UPDATE SET T.VAL = S.VAL\n  DELETE WHERE T.VAL = \'DELETE_ME\';',
+      "다음 MERGE 문에서 DELETE 절의 동작으로 올바른 것은?\n\nMERGE INTO TARGET T\nUSING SOURCE S\n  ON (T.ID = S.ID)\nWHEN MATCHED THEN\n  UPDATE SET T.VAL = S.VAL\n  DELETE WHERE T.VAL = 'DELETE_ME';",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'DML',
@@ -541,8 +507,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
   {
     id: 'exam6_p27',
     title: '27. 다중 행 INSERT 성능',
-    description:
-      '동일한 데이터를 대량으로 INSERT할 때 성능 관점에서 올바른 설명은?',
+    description: '동일한 데이터를 대량으로 INSERT할 때 성능 관점에서 올바른 설명은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DML',
@@ -603,8 +568,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
   {
     id: 'exam6_p30',
     title: '30. 스칼라 서브쿼리의 제약',
-    description:
-      '다음 중 스칼라 서브쿼리(Scalar Subquery)의 제약 조건으로 올바른 것은?',
+    description: '다음 중 스칼라 서브쿼리(Scalar Subquery)의 제약 조건으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '서브쿼리',
@@ -748,7 +712,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p37',
     title: '37. UNION과 NULL 처리',
     description:
-      '다음 SQL의 결과로 올바른 것은?\n\nSELECT 1 AS NUM, NULL AS NAME FROM DUAL\nUNION\nSELECT 1, NULL FROM DUAL\nUNION\nSELECT 2, \'김철수\' FROM DUAL;',
+      "다음 SQL의 결과로 올바른 것은?\n\nSELECT 1 AS NUM, NULL AS NAME FROM DUAL\nUNION\nSELECT 1, NULL FROM DUAL\nUNION\nSELECT 2, '김철수' FROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '집합연산',
@@ -768,7 +732,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p38',
     title: '38. INTERSECT와 MINUS 연산',
     description:
-      '다음 SQL에 대한 설명으로 올바른 것은?\n\n[집합 A]: SELECT EMP_ID FROM EMP WHERE DEPT = \'영업\'\n[집합 B]: SELECT EMP_ID FROM EMP WHERE BONUS > 500\n\nA INTERSECT B 와 A MINUS B의 의미를 올바르게 설명한 것은?',
+      "다음 SQL에 대한 설명으로 올바른 것은?\n\n[집합 A]: SELECT EMP_ID FROM EMP WHERE DEPT = '영업'\n[집합 B]: SELECT EMP_ID FROM EMP WHERE BONUS > 500\n\nA INTERSECT B 와 A MINUS B의 의미를 올바르게 설명한 것은?",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '집합연산',
@@ -788,7 +752,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p39',
     title: '39. UNION ALL과 ORDER BY',
     description:
-      '다음 SQL에서 ORDER BY 절의 위치와 동작으로 올바른 것은?\n\nSELECT EMP_NAME, SAL FROM EMP WHERE DEPT = \'영업\'\nUNION ALL\nSELECT EMP_NAME, SAL FROM EMP WHERE DEPT = \'개발\'\nORDER BY SAL DESC;',
+      "다음 SQL에서 ORDER BY 절의 위치와 동작으로 올바른 것은?\n\nSELECT EMP_NAME, SAL FROM EMP WHERE DEPT = '영업'\nUNION ALL\nSELECT EMP_NAME, SAL FROM EMP WHERE DEPT = '개발'\nORDER BY SAL DESC;",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '집합연산',
@@ -869,8 +833,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
   {
     id: 'exam6_p43',
     title: '43. 뷰(View)의 특성과 제약',
-    description:
-      '다음 중 뷰(View)에 대한 설명으로 올바르지 않은 것은?',
+    description: '다음 중 뷰(View)에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DDL',
@@ -953,8 +916,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
   {
     id: 'exam6_p47',
     title: '47. ROLE을 이용한 권한 관리',
-    description:
-      '다음 중 ROLE을 이용한 권한 관리에 대한 설명으로 올바른 것은?',
+    description: '다음 중 ROLE을 이용한 권한 관리에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DCL',
@@ -1016,7 +978,7 @@ export const EXAM_6_PROBLEMS: Problem[] = [
     id: 'exam6_p50',
     title: '50. Oracle 계층형 쿼리 CONNECT BY',
     description:
-      '다음 Oracle 계층형 쿼리에서 NOCYCLE 옵션의 역할로 올바른 것은?\n\nSELECT LEVEL, EMP_ID, EMP_NAME, MGR_ID,\n       SYS_CONNECT_BY_PATH(EMP_NAME, \'/\') AS PATH\nFROM EMP\nSTART WITH MGR_ID IS NULL\nCONNECT BY NOCYCLE PRIOR EMP_ID = MGR_ID;',
+      "다음 Oracle 계층형 쿼리에서 NOCYCLE 옵션의 역할로 올바른 것은?\n\nSELECT LEVEL, EMP_ID, EMP_NAME, MGR_ID,\n       SYS_CONNECT_BY_PATH(EMP_NAME, '/') AS PATH\nFROM EMP\nSTART WITH MGR_ID IS NULL\nCONNECT BY NOCYCLE PRIOR EMP_ID = MGR_ID;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '계층형쿼리',

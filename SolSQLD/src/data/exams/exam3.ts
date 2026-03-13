@@ -10,8 +10,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p1',
     title: '1. 개념적 데이터 모델링',
-    description:
-      '개념적 데이터 모델링에 대한 설명으로 올바른 것은?',
+    description: '개념적 데이터 모델링에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -30,8 +29,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p2',
     title: '2. 엔터티와 인스턴스',
-    description:
-      '다음 중 엔터티와 인스턴스의 관계에 대한 설명으로 올바른 것은?',
+    description: '다음 중 엔터티와 인스턴스의 관계에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -50,8 +48,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p3',
     title: '3. 주식별자 선정 기준',
-    description:
-      '주식별자(Primary Identifier) 선정 기준으로 올바르지 않은 것은?',
+    description: '주식별자(Primary Identifier) 선정 기준으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -90,8 +87,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p5',
     title: '5. M:N 관계 해소',
-    description:
-      'M:N(다대다) 관계를 해소하는 방법으로 올바른 것은?',
+    description: 'M:N(다대다) 관계를 해소하는 방법으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '데이터모델링',
@@ -110,8 +106,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p6',
     title: '6. 슈퍼타입과 서브타입',
-    description:
-      '슈퍼타입/서브타입 모델에 대한 설명으로 올바른 것은?',
+    description: '슈퍼타입/서브타입 모델에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '데이터모델링',
@@ -159,19 +154,13 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       '학생이름은 기본키의 일부인 학번에만 종속(학번 → 학생이름)되므로 부분 함수 종속입니다. 성적은 (학번, 과목코드) 전체에 종속되므로 완전 함수 종속입니다. 이 부분 함수 종속을 제거하는 것이 2NF입니다.',
-    options: [
-      '학생이름',
-      '성적',
-      '학번',
-      '과목코드',
-    ],
+    options: ['학생이름', '성적', '학번', '과목코드'],
     points: 10,
   },
   {
     id: 'exam3_p9',
     title: '9. 반정규화 기법',
-    description:
-      '다음 중 반정규화 기법에 해당하지 않는 것은?',
+    description: '다음 중 반정규화 기법에 해당하지 않는 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '정규화',
@@ -190,8 +179,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p10',
     title: '10. NULL과 연산',
-    description:
-      '다음 중 결과가 NULL이 아닌 것은?',
+    description: '다음 중 결과가 NULL이 아닌 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '정규화',
@@ -199,12 +187,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'NULL과의 산술 연산(+, -, *, /)이나 문자열 연결 결과는 NULL입니다. 그러나 COUNT(*)는 NULL을 포함한 전체 행 수를 반환하므로 NULL이 아닙니다.',
-    options: [
-      'NULL + 100',
-      "NULL || 'ABC'",
-      'NULL * 0',
-      'COUNT(*) (테이블에 NULL 행 포함)',
-    ],
+    options: ['NULL + 100', "NULL || 'ABC'", 'NULL * 0', 'COUNT(*) (테이블에 NULL 행 포함)'],
     points: 10,
   },
 
@@ -215,7 +198,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     id: 'exam3_p11',
     title: '11. BETWEEN과 IN',
     description:
-      "다음 두 SQL의 결과가 동일한 것은?\n\n-- SQL1: WHERE SAL BETWEEN 1000 AND 3000\n-- SQL2: ?",
+      '다음 두 SQL의 결과가 동일한 것은?\n\n-- SQL1: WHERE SAL BETWEEN 1000 AND 3000\n-- SQL2: ?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DML',
@@ -234,8 +217,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p12',
     title: '12. 별칭(Alias) 사용',
-    description:
-      '다음 SQL에서 오류가 발생하는 것은?',
+    description: '다음 SQL에서 오류가 발생하는 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DML',
@@ -254,8 +236,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p13',
     title: '13. MERGE 문',
-    description:
-      'MERGE 문에 대한 설명으로 올바른 것은?',
+    description: 'MERGE 문에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DML',
@@ -294,8 +275,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p15',
     title: '15. ROWNUM',
-    description:
-      'Oracle에서 상위 5건만 조회하는 SQL로 올바른 것은?',
+    description: 'Oracle에서 상위 5건만 조회하는 SQL로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DML',
@@ -316,8 +296,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p16',
     title: '16. REPLACE 함수',
-    description:
-      "다음 SQL의 결과는?\n\nSELECT REPLACE('ABCABC', 'AB', 'X') FROM DUAL;",
+    description: "다음 SQL의 결과는?\n\nSELECT REPLACE('ABCABC', 'AB', 'X') FROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
@@ -325,19 +304,13 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       "REPLACE(문자열, 검색문자, 대체문자)는 문자열에서 검색문자를 대체문자로 모두 치환합니다. 'ABCABC'에서 'AB'를 'X'로 바꾸면 'XCXC'가 됩니다.",
-    options: [
-      'XCXC',
-      'XBCXBC',
-      'ABCX',
-      'XCABC',
-    ],
+    options: ['XCXC', 'XBCXBC', 'ABCX', 'XCABC'],
     points: 10,
   },
   {
     id: 'exam3_p17',
     title: '17. LPAD / RPAD',
-    description:
-      "다음 SQL의 결과는?\n\nSELECT LPAD('ABC', 7, '*') FROM DUAL;",
+    description: "다음 SQL의 결과는?\n\nSELECT LPAD('ABC', 7, '*') FROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
@@ -345,19 +318,13 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       "LPAD(문자열, 전체길이, 채울문자)는 왼쪽을 지정한 문자로 채워 전체 길이를 맞춥니다. 'ABC'(3글자)를 7글자로 만들려면 왼쪽에 '*' 4개를 채웁니다.",
-    options: [
-      'ABC****',
-      '****ABC',
-      '***ABC*',
-      '*ABC***',
-    ],
+    options: ['ABC****', '****ABC', '***ABC*', '*ABC***'],
     points: 10,
   },
   {
     id: 'exam3_p18',
     title: '18. MOD 함수',
-    description:
-      '다음 SQL의 결과는?\n\nSELECT MOD(17, 5) FROM DUAL;',
+    description: '다음 SQL의 결과는?\n\nSELECT MOD(17, 5) FROM DUAL;',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
@@ -365,12 +332,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'MOD(m, n)은 m을 n으로 나눈 나머지를 반환합니다. 17 ÷ 5 = 3 ... 2이므로 나머지 2를 반환합니다.',
-    options: [
-      '3',
-      '2',
-      '5',
-      '12',
-    ],
+    options: ['3', '2', '5', '12'],
     points: 10,
   },
   {
@@ -385,19 +347,13 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'NVL2(expr1, expr2, expr3)는 expr1이 NULL이 아니면 expr2를, NULL이면 expr3를 반환합니다. COMM이 NULL이므로 세 번째 인수인 100을 반환합니다.',
-    options: [
-      'NULL',
-      'COMM * 1.1',
-      '100',
-      '0',
-    ],
+    options: ['NULL', 'COMM * 1.1', '100', '0'],
     points: 10,
   },
   {
     id: 'exam3_p20',
     title: '20. HAVING과 WHERE의 차이',
-    description:
-      'HAVING과 WHERE의 차이에 대한 설명으로 올바른 것은?',
+    description: 'HAVING과 WHERE의 차이에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
@@ -416,8 +372,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p21',
     title: '21. 문자열 결합',
-    description:
-      "다음 SQL의 결과는?\n\nSELECT 'Hello' || ' ' || 'World' FROM DUAL;",
+    description: "다음 SQL의 결과는?\n\nSELECT 'Hello' || ' ' || 'World' FROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
@@ -425,12 +380,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       "Oracle에서 || 연산자는 문자열을 결합합니다. 'Hello' + ' ' + 'World' = 'Hello World'가 됩니다.",
-    options: [
-      'Hello World',
-      'HelloWorld',
-      'Hello||World',
-      '오류 발생',
-    ],
+    options: ['Hello World', 'HelloWorld', 'Hello||World', '오류 발생'],
     points: 10,
   },
 
@@ -487,19 +437,13 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'EXISTS를 사용하여 서브쿼리에 매칭되는 행이 존재하는 메인 쿼리의 행만 반환하는 것을 SEMI JOIN이라 합니다. DEPT에서 EMP에 매칭되는 부서만 반환합니다.',
-    options: [
-      'INNER JOIN',
-      'ANTI JOIN',
-      'SEMI JOIN',
-      'OUTER JOIN',
-    ],
+    options: ['INNER JOIN', 'ANTI JOIN', 'SEMI JOIN', 'OUTER JOIN'],
     points: 10,
   },
   {
     id: 'exam3_p25',
     title: '25. 조인과 NULL',
-    description:
-      'EMP.DEPTNO에 NULL이 포함된 행이 있을 때, INNER JOIN의 결과에 이 행이 포함되는가?',
+    description: 'EMP.DEPTNO에 NULL이 포함된 행이 있을 때, INNER JOIN의 결과에 이 행이 포함되는가?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'JOIN',
@@ -519,7 +463,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     id: 'exam3_p26',
     title: '26. 다중 조건 JOIN',
     description:
-      '다음 SQL에서 AND 조건의 역할은?\n\nSELECT * FROM EMP E\nJOIN DEPT D ON E.DEPTNO = D.DEPTNO AND D.LOC = \'서울\';',
+      "다음 SQL에서 AND 조건의 역할은?\n\nSELECT * FROM EMP E\nJOIN DEPT D ON E.DEPTNO = D.DEPTNO AND D.LOC = '서울';",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -528,7 +472,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     explanation:
       'ON 절에 AND 조건을 추가하면 조인 조건 자체에 추가 필터가 적용됩니다. INNER JOIN에서는 ON에 조건을 쓰나 WHERE에 쓰나 결과가 같지만, OUTER JOIN에서는 다른 결과가 나올 수 있습니다.',
     options: [
-      '조인 조건에 LOC = \'서울\' 필터를 추가한다.',
+      "조인 조건에 LOC = '서울' 필터를 추가한다.",
       '조인 후 별도의 WHERE 절 역할을 한다.',
       'DEPTNO 조인과 LOC 조인을 각각 수행한다.',
       '문법 오류가 발생한다.',
@@ -538,8 +482,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p27',
     title: '27. OUTER JOIN에서의 ON vs WHERE',
-    description:
-      'LEFT OUTER JOIN에서 ON 절과 WHERE 절에 조건을 넣을 때의 차이는?',
+    description: 'LEFT OUTER JOIN에서 ON 절과 WHERE 절에 조건을 넣을 때의 차이는?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'JOIN',
@@ -600,8 +543,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p30',
     title: '30. 상관 서브쿼리 실행 순서',
-    description:
-      '상관 서브쿼리의 실행 순서로 올바른 것은?',
+    description: '상관 서브쿼리의 실행 순서로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '서브쿼리',
@@ -642,8 +584,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p32',
     title: '32. PERCENT_RANK',
-    description:
-      'PERCENT_RANK() OVER (ORDER BY SAL) 함수에 대한 설명으로 올바른 것은?',
+    description: 'PERCENT_RANK() OVER (ORDER BY SAL) 함수에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '윈도우함수',
@@ -662,8 +603,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p33',
     title: '33. 윈도우 프레임',
-    description:
-      'ROWS와 RANGE의 차이에 대한 설명으로 올바른 것은?',
+    description: 'ROWS와 RANGE의 차이에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '윈도우함수',
@@ -691,19 +631,13 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'CUME_DIST는 (현재 행 이하의 행 수) / (전체 행 수)로 계산됩니다. SAL=2000 이하인 행은 3건(1000, 2000, 2000), 전체 5건이므로 3/5 = 0.6입니다.',
-    options: [
-      '0.4',
-      '0.5',
-      '0.6',
-      '0.8',
-    ],
+    options: ['0.4', '0.5', '0.6', '0.8'],
     points: 10,
   },
   {
     id: 'exam3_p35',
     title: '35. 윈도우 함수와 PARTITION BY',
-    description:
-      '윈도우 함수에서 PARTITION BY를 생략하면 어떻게 되는가?',
+    description: '윈도우 함수에서 PARTITION BY를 생략하면 어떻게 되는가?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '윈도우함수',
@@ -724,8 +658,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p36',
     title: '36. INTERSECT',
-    description:
-      'A = {1, 2, 3, 4, 5}, B = {3, 4, 5, 6, 7}일 때,\nA INTERSECT B의 결과는?',
+    description: 'A = {1, 2, 3, 4, 5}, B = {3, 4, 5, 6, 7}일 때,\nA INTERSECT B의 결과는?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '집합연산',
@@ -733,19 +666,13 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'INTERSECT는 두 집합의 교집합을 반환합니다. A와 B에 공통으로 포함된 {3, 4, 5}가 결과입니다.',
-    options: [
-      '{1, 2, 3, 4, 5, 6, 7}',
-      '{3, 4, 5}',
-      '{1, 2}',
-      '{6, 7}',
-    ],
+    options: ['{1, 2, 3, 4, 5, 6, 7}', '{3, 4, 5}', '{1, 2}', '{6, 7}'],
     points: 10,
   },
   {
     id: 'exam3_p37',
     title: '37. 집합 연산자 우선순위',
-    description:
-      'SQL에서 집합 연산자의 처리 순서에 대한 설명으로 올바른 것은?',
+    description: 'SQL에서 집합 연산자의 처리 순서에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '집합연산',
@@ -764,8 +691,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p38',
     title: '38. ROLLUP과 소계 행 구분',
-    description:
-      'ROLLUP으로 생성된 소계 행과 일반 행을 구분하는 방법은?',
+    description: 'ROLLUP으로 생성된 소계 행과 일반 행을 구분하는 방법은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '집합연산',
@@ -784,8 +710,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p39',
     title: '39. CUBE의 결과 행 수',
-    description:
-      'CUBE(A, B, C)에서 생성되는 그룹핑 조합의 수는?',
+    description: 'CUBE(A, B, C)에서 생성되는 그룹핑 조합의 수는?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '집합연산',
@@ -793,12 +718,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'CUBE(A, B, C)는 2^3 = 8가지 조합을 생성합니다: (A,B,C), (A,B), (A,C), (B,C), (A), (B), (C), (). 즉 모든 가능한 부분집합에 대한 소계를 구합니다.',
-    options: [
-      '3가지',
-      '4가지',
-      '6가지',
-      '8가지',
-    ],
+    options: ['3가지', '4가지', '6가지', '8가지'],
     points: 10,
   },
 
@@ -807,7 +727,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     id: 'exam3_p40',
     title: '40. DEFAULT 값',
     description:
-      '다음 DDL과 INSERT의 결과로 올바른 것은?\n\nCREATE TABLE T (\n  ID NUMBER,\n  STATUS VARCHAR2(10) DEFAULT \'ACTIVE\'\n);\nINSERT INTO T (ID) VALUES (1);',
+      "다음 DDL과 INSERT의 결과로 올바른 것은?\n\nCREATE TABLE T (\n  ID NUMBER,\n  STATUS VARCHAR2(10) DEFAULT 'ACTIVE'\n);\nINSERT INTO T (ID) VALUES (1);",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DDL',
@@ -826,8 +746,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p41',
     title: '41. UNIQUE 제약조건',
-    description:
-      'UNIQUE 제약조건에 대한 설명으로 올바른 것은?',
+    description: 'UNIQUE 제약조건에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DDL',
@@ -846,8 +765,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p42',
     title: '42. CASCADE 옵션',
-    description:
-      'FOREIGN KEY의 ON DELETE CASCADE 옵션의 동작은?',
+    description: 'FOREIGN KEY의 ON DELETE CASCADE 옵션의 동작은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DDL',
@@ -866,8 +784,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p43',
     title: '43. RENAME과 COMMENT',
-    description:
-      '테이블 이름을 변경하는 DDL 명령어는?',
+    description: '테이블 이름을 변경하는 DDL 명령어는?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DDL',
@@ -888,8 +805,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p44',
     title: '44. 트랜잭션 시작',
-    description:
-      'Oracle에서 트랜잭션이 시작되는 시점은?',
+    description: 'Oracle에서 트랜잭션이 시작되는 시점은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'TCL',
@@ -917,12 +833,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'COMMIT으로 확정된 데이터(1)는 ROLLBACK으로 취소할 수 없습니다. COMMIT 이후 삽입된 2와 3만 ROLLBACK으로 취소되므로 1만 남습니다.',
-    options: [
-      '1, 2, 3 모두 존재',
-      '1만 존재',
-      '아무것도 없음',
-      '2, 3만 존재',
-    ],
+    options: ['1, 2, 3 모두 존재', '1만 존재', '아무것도 없음', '2, 3만 존재'],
     points: 10,
   },
 
@@ -930,8 +841,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p46',
     title: '46. 시스템 권한 vs 객체 권한',
-    description:
-      '다음 중 시스템 권한에 해당하는 것은?',
+    description: '다음 중 시스템 권한에 해당하는 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DCL',
@@ -939,12 +849,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       'CREATE TABLE은 테이블을 생성할 수 있는 시스템 권한입니다. SELECT ON, INSERT ON, UPDATE ON은 특정 객체에 대한 객체 권한입니다.',
-    options: [
-      'CREATE TABLE',
-      'SELECT ON EMP',
-      'INSERT ON DEPT',
-      'UPDATE ON EMP',
-    ],
+    options: ['CREATE TABLE', 'SELECT ON EMP', 'INSERT ON DEPT', 'UPDATE ON EMP'],
     points: 10,
   },
   {
@@ -972,8 +877,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p48',
     title: '48. CONNECT_BY_ISLEAF',
-    description:
-      'Oracle 계층형 쿼리에서 CONNECT_BY_ISLEAF의 의미는?',
+    description: 'Oracle 계층형 쿼리에서 CONNECT_BY_ISLEAF의 의미는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '계층형쿼리',
@@ -993,7 +897,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
     id: 'exam3_p49',
     title: '49. SYS_CONNECT_BY_PATH',
     description:
-      '다음 계층형 쿼리의 SYS_CONNECT_BY_PATH 결과에 대한 설명으로 올바른 것은?\n\nSELECT ENAME, SYS_CONNECT_BY_PATH(ENAME, \'/\') AS PATH\nFROM EMP\nSTART WITH MGR IS NULL\nCONNECT BY PRIOR EMPNO = MGR;',
+      "다음 계층형 쿼리의 SYS_CONNECT_BY_PATH 결과에 대한 설명으로 올바른 것은?\n\nSELECT ENAME, SYS_CONNECT_BY_PATH(ENAME, '/') AS PATH\nFROM EMP\nSTART WITH MGR IS NULL\nCONNECT BY PRIOR EMPNO = MGR;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '계층형쿼리',
@@ -1012,8 +916,7 @@ export const EXAM_3_PROBLEMS: Problem[] = [
   {
     id: 'exam3_p50',
     title: '50. PIVOT',
-    description:
-      'PIVOT에 대한 설명으로 올바른 것은?',
+    description: 'PIVOT에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '계층형쿼리',

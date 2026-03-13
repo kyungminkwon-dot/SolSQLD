@@ -79,10 +79,13 @@ export default function ExamTakingPage() {
   );
   const pageStartIndex = currentPage * PROBLEMS_PER_PAGE;
 
-  const goToPage = useCallback((page: number) => {
-    setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [totalPages]);
+  const goToPage = useCallback(
+    (page: number) => {
+      setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    [totalPages]
+  );
 
   const handleSelect = useCallback(
     (problemId: string, val: string) => {
@@ -176,7 +179,8 @@ export default function ExamTakingPage() {
             {/* 페이지 상단 번호 표시 (2페이지부터) */}
             {currentPage > 0 && (
               <div className="text-right text-xs text-slate-400 mb-6">
-                {pageStartIndex + 1}~{Math.min(pageStartIndex + PROBLEMS_PER_PAGE, problems.length)}번 문제
+                {pageStartIndex + 1}~{Math.min(pageStartIndex + PROBLEMS_PER_PAGE, problems.length)}
+                번 문제
               </div>
             )}
 

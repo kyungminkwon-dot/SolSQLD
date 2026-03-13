@@ -31,8 +31,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
   {
     id: 'exam8_p2',
     title: '2. 엔터티 식별자 선택 기준',
-    description:
-      '다음 중 주식별자(Primary Identifier) 선택 기준으로 가장 올바르지 않은 것은?',
+    description: '다음 중 주식별자(Primary Identifier) 선택 기준으로 가장 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -173,8 +172,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
   {
     id: 'exam8_p9',
     title: '9. 정규화의 장단점',
-    description:
-      '다음 중 정규화(Normalization)의 장점과 단점을 올바르게 설명한 것은?',
+    description: '다음 중 정규화(Normalization)의 장점과 단점을 올바르게 설명한 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '정규화',
@@ -212,7 +210,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p11',
     title: '11. 셀프 조인과 계층 데이터',
     description:
-      '다음 직원 테이블에서 각 직원의 이름과 직속 상사의 이름을 함께 조회하되, 상사가 없는 직원(최상위 관리자)도 결과에 포함시키는 쿼리로 올바른 것은?\n\nEMPLOYEE(EMP_ID, EMP_NAME, MANAGER_ID)\n데이터:\n(1, \'김대표\', NULL)\n(2, \'이부장\', 1)\n(3, \'박과장\', 2)\n(4, \'최대리\', 2)',
+      "다음 직원 테이블에서 각 직원의 이름과 직속 상사의 이름을 함께 조회하되, 상사가 없는 직원(최상위 관리자)도 결과에 포함시키는 쿼리로 올바른 것은?\n\nEMPLOYEE(EMP_ID, EMP_NAME, MANAGER_ID)\n데이터:\n(1, '김대표', NULL)\n(2, '이부장', 1)\n(3, '박과장', 2)\n(4, '최대리', 2)",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -247,7 +245,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p13',
     title: '13. OUTER JOIN과 NULL 처리',
     description:
-      '다음 SQL의 실행 결과로 올바른 것은?\n\n[테이블 데이터]\nDEPT: (10,\'영업\'), (20,\'개발\'), (30,\'인사\')\nEMP: (1,10,\'홍길동\'), (2,10,\'이순신\'), (3,20,\'강감찬\')\n\nSELECT d.DEPT_NO, d.DEPT_NAME, COUNT(e.EMP_ID) AS EMP_COUNT\nFROM DEPT d\nLEFT OUTER JOIN EMP e ON d.DEPT_NO = e.DEPT_NO\nGROUP BY d.DEPT_NO, d.DEPT_NAME\nORDER BY d.DEPT_NO;',
+      "다음 SQL의 실행 결과로 올바른 것은?\n\n[테이블 데이터]\nDEPT: (10,'영업'), (20,'개발'), (30,'인사')\nEMP: (1,10,'홍길동'), (2,10,'이순신'), (3,20,'강감찬')\n\nSELECT d.DEPT_NO, d.DEPT_NAME, COUNT(e.EMP_ID) AS EMP_COUNT\nFROM DEPT d\nLEFT OUTER JOIN EMP e ON d.DEPT_NO = e.DEPT_NO\nGROUP BY d.DEPT_NO, d.DEPT_NAME\nORDER BY d.DEPT_NO;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -286,8 +284,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
   {
     id: 'exam8_p15',
     title: '15. NATURAL JOIN의 특성',
-    description:
-      '다음 중 NATURAL JOIN에 대한 설명으로 올바르지 않은 것은?',
+    description: '다음 중 NATURAL JOIN에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -307,14 +304,14 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p16',
     title: '16. 복합 조인 조건과 실행 결과 추적',
     description:
-      '다음 SQL의 실행 결과로 올바른 것은?\n\n[테이블]\nORDERS: (ORD_ID, CUST_ID, STATUS)\n값: (1,100,\'완료\'), (2,100,\'취소\'), (3,200,\'완료\'), (4,300,\'대기\')\n\nCUST: (CUST_ID, CUST_NAME, GRADE)\n값: (100,\'김씨\',\'VIP\'), (200,\'이씨\',\'일반\'), (400,\'박씨\',\'VIP\')\n\nSELECT c.CUST_NAME, COUNT(o.ORD_ID) AS CNT\nFROM CUST c\nLEFT JOIN ORDERS o ON c.CUST_ID = o.CUST_ID AND o.STATUS = \'완료\'\nGROUP BY c.CUST_NAME\nORDER BY c.CUST_NAME;',
+      "다음 SQL의 실행 결과로 올바른 것은?\n\n[테이블]\nORDERS: (ORD_ID, CUST_ID, STATUS)\n값: (1,100,'완료'), (2,100,'취소'), (3,200,'완료'), (4,300,'대기')\n\nCUST: (CUST_ID, CUST_NAME, GRADE)\n값: (100,'김씨','VIP'), (200,'이씨','일반'), (400,'박씨','VIP')\n\nSELECT c.CUST_NAME, COUNT(o.ORD_ID) AS CNT\nFROM CUST c\nLEFT JOIN ORDERS o ON c.CUST_ID = o.CUST_ID AND o.STATUS = '완료'\nGROUP BY c.CUST_NAME\nORDER BY c.CUST_NAME;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'JOIN',
     correctRate: 35,
     answer: '3',
     explanation:
-      'LEFT JOIN의 ON 절에 o.STATUS = \'완료\' 조건이 포함되어 있습니다. 이 조건은 WHERE 절이 아닌 ON 절에 있으므로, 조건을 만족하지 않아도 CUST 테이블의 모든 행은 보존됩니다. 조건을 만족하지 않는 ORDERS 행은 NULL로 처리됩니다. 분석: 김씨(100)는 완료 주문 1개(ORD_ID=1) → COUNT=1, 이씨(200)는 완료 주문 1개(ORD_ID=3) → COUNT=1, 박씨(400)는 ORDERS에 없으므로 → COUNT=0(COUNT(o.ORD_ID)는 NULL 제외). 따라서 (김씨,1), (박씨,0), (이씨,1) 순으로 정렬됩니다.',
+      "LEFT JOIN의 ON 절에 o.STATUS = '완료' 조건이 포함되어 있습니다. 이 조건은 WHERE 절이 아닌 ON 절에 있으므로, 조건을 만족하지 않아도 CUST 테이블의 모든 행은 보존됩니다. 조건을 만족하지 않는 ORDERS 행은 NULL로 처리됩니다. 분석: 김씨(100)는 완료 주문 1개(ORD_ID=1) → COUNT=1, 이씨(200)는 완료 주문 1개(ORD_ID=3) → COUNT=1, 박씨(400)는 ORDERS에 없으므로 → COUNT=0(COUNT(o.ORD_ID)는 NULL 제외). 따라서 (김씨,1), (박씨,0), (이씨,1) 순으로 정렬됩니다.",
     options: [
       '(김씨,2), (이씨,1), (박씨,0)',
       '(김씨,1), (이씨,1)',
@@ -329,14 +326,14 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p17',
     title: '17. 날짜 함수 계산',
     description:
-      '다음 SQL을 Oracle 환경에서 실행했을 때 결과로 올바른 것은?\n(기준: 오늘 날짜 = 2024-03-15)\n\nSELECT\n  MONTHS_BETWEEN(TO_DATE(\'2024-03-15\',\'YYYY-MM-DD\'), TO_DATE(\'2023-09-15\',\'YYYY-MM-DD\')) AS M1,\n  ADD_MONTHS(TO_DATE(\'2024-01-31\',\'YYYY-MM-DD\'), 1) AS M2,\n  LAST_DAY(TO_DATE(\'2024-02-01\',\'YYYY-MM-DD\')) AS M3\nFROM DUAL;',
+      "다음 SQL을 Oracle 환경에서 실행했을 때 결과로 올바른 것은?\n(기준: 오늘 날짜 = 2024-03-15)\n\nSELECT\n  MONTHS_BETWEEN(TO_DATE('2024-03-15','YYYY-MM-DD'), TO_DATE('2023-09-15','YYYY-MM-DD')) AS M1,\n  ADD_MONTHS(TO_DATE('2024-01-31','YYYY-MM-DD'), 1) AS M2,\n  LAST_DAY(TO_DATE('2024-02-01','YYYY-MM-DD')) AS M3\nFROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
     correctRate: 50,
     answer: '2',
     explanation:
-      'MONTHS_BETWEEN(\'2024-03-15\', \'2023-09-15\'): 2024년 3월에서 2023년 9월까지의 개월 수. 6개월 차이이므로 결과는 6. ADD_MONTHS(\'2024-01-31\', 1): 1월 31일에 1개월 추가 시 2월의 마지막 날인 2024-02-29(2024년은 윤년). Oracle ADD_MONTHS는 말일 처리를 자동으로 합니다. LAST_DAY(\'2024-02-01\'): 2024년 2월의 마지막 날은 2024-02-29(윤년)입니다. 따라서 M1=6, M2=2024-02-29, M3=2024-02-29.',
+      "MONTHS_BETWEEN('2024-03-15', '2023-09-15'): 2024년 3월에서 2023년 9월까지의 개월 수. 6개월 차이이므로 결과는 6. ADD_MONTHS('2024-01-31', 1): 1월 31일에 1개월 추가 시 2월의 마지막 날인 2024-02-29(2024년은 윤년). Oracle ADD_MONTHS는 말일 처리를 자동으로 합니다. LAST_DAY('2024-02-01'): 2024년 2월의 마지막 날은 2024-02-29(윤년)입니다. 따라서 M1=6, M2=2024-02-29, M3=2024-02-29.",
     options: [
       'M1=6, M2=2024-02-28, M3=2024-02-28',
       'M1=6, M2=2024-02-29, M3=2024-02-29',
@@ -349,22 +346,21 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p18',
     title: '18. 문자열 함수 중첩 적용',
     description:
-      '다음 SQL의 실행 결과는?\n\nSELECT TRIM(LEADING \'0\' FROM LPAD(LTRIM(\'  SQL  \'), 10, \'0\'))\nFROM DUAL;',
+      "다음 SQL의 실행 결과는?\n\nSELECT TRIM(LEADING '0' FROM LPAD(LTRIM('  SQL  '), 10, '0'))\nFROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '함수',
     correctRate: 28,
     answer: '1',
     explanation:
-      '단계별 분석:\n1) LTRIM(\'  SQL  \'): 왼쪽 공백 제거 → \'SQL  \'\n2) LPAD(\'SQL  \', 10, \'0\'): 전체 길이 10이 되도록 왼쪽에 \'0\'을 채움. \'SQL  \'은 5자(S,Q,L,공백,공백)이므로 5개의 0을 앞에 붙임 → \'00000SQL  \'\n3) TRIM(LEADING \'0\' FROM \'00000SQL  \'): 왼쪽의 \'0\'들을 제거 → \'SQL  \'\n최종 결과는 \'SQL  \'(오른쪽 공백 2개 포함)입니다.',
+      "단계별 분석:\n1) LTRIM('  SQL  '): 왼쪽 공백 제거 → 'SQL  '\n2) LPAD('SQL  ', 10, '0'): 전체 길이 10이 되도록 왼쪽에 '0'을 채움. 'SQL  '은 5자(S,Q,L,공백,공백)이므로 5개의 0을 앞에 붙임 → '00000SQL  '\n3) TRIM(LEADING '0' FROM '00000SQL  '): 왼쪽의 '0'들을 제거 → 'SQL  '\n최종 결과는 'SQL  '(오른쪽 공백 2개 포함)입니다.",
     options: ["'SQL  '(오른쪽 공백 2개)", "'SQL'(공백 없음)", "'00000SQL  '", "'SQL'(길이 3)"],
     points: 10,
   },
   {
     id: 'exam8_p19',
     title: '19. NULL 처리 함수 비교',
-    description:
-      '다음 중 NULL 처리 함수에 대한 설명으로 올바르지 않은 것은?\n\n(Oracle 환경 기준)',
+    description: '다음 중 NULL 처리 함수에 대한 설명으로 올바르지 않은 것은?\n\n(Oracle 환경 기준)',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
@@ -384,14 +380,14 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p20',
     title: '20. DECODE와 CASE 비교',
     description:
-      '다음 두 SQL이 동일한 결과를 반환하는지 판단하라.\n\n[SQL1]\nSELECT DECODE(SCORE, NULL, \'미응시\', DECODE(SIGN(SCORE-60), 1, \'우수\', 0, \'합격\', -1, \'불합격\')) AS RESULT\nFROM EXAM;\n\n[SQL2]\nSELECT CASE\n  WHEN SCORE IS NULL THEN \'미응시\'\n  WHEN SCORE > 60 THEN \'우수\'\n  WHEN SCORE = 60 THEN \'합격\'\n  ELSE \'불합격\'\nEND AS RESULT\nFROM EXAM;\n\n두 SQL에 대한 올바른 설명은?',
+      "다음 두 SQL이 동일한 결과를 반환하는지 판단하라.\n\n[SQL1]\nSELECT DECODE(SCORE, NULL, '미응시', DECODE(SIGN(SCORE-60), 1, '우수', 0, '합격', -1, '불합격')) AS RESULT\nFROM EXAM;\n\n[SQL2]\nSELECT CASE\n  WHEN SCORE IS NULL THEN '미응시'\n  WHEN SCORE > 60 THEN '우수'\n  WHEN SCORE = 60 THEN '합격'\n  ELSE '불합격'\nEND AS RESULT\nFROM EXAM;\n\n두 SQL에 대한 올바른 설명은?",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '함수',
     correctRate: 32,
     answer: '4',
     explanation:
-      'SIGN(x): x>0이면 1, x=0이면 0, x<0이면 -1 반환. SQL1 분석: SCORE가 NULL이면 \'미응시\', 아니면 SIGN(SCORE-60)으로 판단. SIGN(SCORE-60)=1이면 SCORE>60으로 \'우수\', =0이면 SCORE=60으로 \'합격\', =-1이면 SCORE<60으로 \'불합격\'. SQL2 분석: NULL은 \'미응시\', SCORE>60은 \'우수\', SCORE=60은 \'합격\', 나머지(SCORE<60)는 \'불합격\'. DECODE에서 NULL 비교는 등가 비교(=)로 처리되므로 DECODE(SCORE, NULL, ...)는 IS NULL과 동일하게 동작합니다. 두 SQL은 동일한 결과를 반환합니다.',
+      "SIGN(x): x>0이면 1, x=0이면 0, x<0이면 -1 반환. SQL1 분석: SCORE가 NULL이면 '미응시', 아니면 SIGN(SCORE-60)으로 판단. SIGN(SCORE-60)=1이면 SCORE>60으로 '우수', =0이면 SCORE=60으로 '합격', =-1이면 SCORE<60으로 '불합격'. SQL2 분석: NULL은 '미응시', SCORE>60은 '우수', SCORE=60은 '합격', 나머지(SCORE<60)는 '불합격'. DECODE에서 NULL 비교는 등가 비교(=)로 처리되므로 DECODE(SCORE, NULL, ...)는 IS NULL과 동일하게 동작합니다. 두 SQL은 동일한 결과를 반환합니다.",
     options: [
       '두 SQL은 SCORE=NULL 처리 방식이 달라 결과가 다르다.',
       'SQL1에서 DECODE는 NULL 비교가 불가능하므로 오류가 발생한다.',
@@ -500,8 +496,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
   {
     id: 'exam8_p26',
     title: '26. DELETE와 TRUNCATE 차이',
-    description:
-      '다음 중 DELETE와 TRUNCATE에 대한 설명으로 올바른 것은?',
+    description: '다음 중 DELETE와 TRUNCATE에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DML',
@@ -521,14 +516,14 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p27',
     title: '27. DML 실행 후 결과 추적',
     description:
-      '다음 SQL을 순서대로 실행한 후 최종 테이블의 상태로 올바른 것은?\n\n[초기 데이터]\nT(ID, VAL): (1, \'A\'), (2, \'B\'), (3, \'C\')\n\n① INSERT INTO T VALUES (4, \'D\');\n② UPDATE T SET VAL = \'X\' WHERE ID <= 2;\n③ DELETE FROM T WHERE VAL = \'B\';\n④ INSERT INTO T VALUES (2, \'E\');\n\n위 4개 DML 실행 후 T 테이블의 내용은? (COMMIT 없이 동일 트랜잭션 내)',
+      "다음 SQL을 순서대로 실행한 후 최종 테이블의 상태로 올바른 것은?\n\n[초기 데이터]\nT(ID, VAL): (1, 'A'), (2, 'B'), (3, 'C')\n\n① INSERT INTO T VALUES (4, 'D');\n② UPDATE T SET VAL = 'X' WHERE ID <= 2;\n③ DELETE FROM T WHERE VAL = 'B';\n④ INSERT INTO T VALUES (2, 'E');\n\n위 4개 DML 실행 후 T 테이블의 내용은? (COMMIT 없이 동일 트랜잭션 내)",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DML',
     correctRate: 50,
     answer: '1',
     explanation:
-      '단계별 추적:\n① INSERT (4,\'D\'): T = (1,A),(2,B),(3,C),(4,D)\n② UPDATE VAL=\'X\' WHERE ID<=2: ID=1→(1,X), ID=2→(2,X). T = (1,X),(2,X),(3,C),(4,D)\n③ DELETE WHERE VAL=\'B\': 현재 VAL=\'B\'인 행 없음(②에서 이미 \'X\'로 변경됨). T 변경 없음. T = (1,X),(2,X),(3,C),(4,D)\n④ INSERT (2,\'E\'): ID=2가 이미 있지만 PK 제약이 있다면 오류. 문제에서 PK 제약을 명시하지 않았으므로 삽입 성공. T = (1,X),(2,X),(3,C),(4,D),(2,E)\n하지만 일반적으로 ID가 PK라면 ④에서 오류 발생. 문제를 순수 데이터 관점으로 보면 최종: (1,X),(2,X),(3,C),(4,D),(2,E).',
+      "단계별 추적:\n① INSERT (4,'D'): T = (1,A),(2,B),(3,C),(4,D)\n② UPDATE VAL='X' WHERE ID<=2: ID=1→(1,X), ID=2→(2,X). T = (1,X),(2,X),(3,C),(4,D)\n③ DELETE WHERE VAL='B': 현재 VAL='B'인 행 없음(②에서 이미 'X'로 변경됨). T 변경 없음. T = (1,X),(2,X),(3,C),(4,D)\n④ INSERT (2,'E'): ID=2가 이미 있지만 PK 제약이 있다면 오류. 문제에서 PK 제약을 명시하지 않았으므로 삽입 성공. T = (1,X),(2,X),(3,C),(4,D),(2,E)\n하지만 일반적으로 ID가 PK라면 ④에서 오류 발생. 문제를 순수 데이터 관점으로 보면 최종: (1,X),(2,X),(3,C),(4,D),(2,E).",
     options: [
       '(1,X), (2,X), (3,C), (4,D), (2,E)',
       '(1,X), (3,C), (4,D), (2,E)',
@@ -563,7 +558,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p29',
     title: '29. EXISTS와 IN 서브쿼리 차이',
     description:
-      '다음 두 SQL의 차이에 대한 설명으로 올바르지 않은 것은?\n\n[SQL A]\nSELECT * FROM EMP\nWHERE DEPT_ID IN (SELECT DEPT_ID FROM DEPT WHERE LOCATION = \'서울\');\n\n[SQL B]\nSELECT * FROM EMP e\nWHERE EXISTS (SELECT 1 FROM DEPT d WHERE d.DEPT_ID = e.DEPT_ID AND d.LOCATION = \'서울\');',
+      "다음 두 SQL의 차이에 대한 설명으로 올바르지 않은 것은?\n\n[SQL A]\nSELECT * FROM EMP\nWHERE DEPT_ID IN (SELECT DEPT_ID FROM DEPT WHERE LOCATION = '서울');\n\n[SQL B]\nSELECT * FROM EMP e\nWHERE EXISTS (SELECT 1 FROM DEPT d WHERE d.DEPT_ID = e.DEPT_ID AND d.LOCATION = '서울');",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '서브쿼리',
@@ -631,12 +626,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       '서브쿼리 결과: GROUP BY DEPT_ID의 AVG(SALARY):\n- DEPT 10: (3000+5000)/2 = 4000\n- DEPT 20: (4000+7000)/2 = 5500\n- DEPT 30: 2000/1 = 2000\n서브쿼리 결과 집합: {4000, 5500, 2000}\n\nSALARY > ALL ({4000, 5500, 2000}) 조건: 모든 값보다 커야 하므로 SALARY > 5500 (최대값 5500보다 커야 함)\n\n해당하는 직원:\n- EMP_ID=4: SALARY=7000 > 5500 → 포함\n나머지는 5500 이하이므로 제외.\n결과: (4, 7000)',
-    options: [
-      '(2, 5000), (4, 7000)',
-      '(4, 7000), (2, 5000)',
-      '(3, 4000), (4, 7000)',
-      '(4, 7000)',
-    ],
+    options: ['(2, 5000), (4, 7000)', '(4, 7000), (2, 5000)', '(3, 4000), (4, 7000)', '(4, 7000)'],
     points: 10,
   },
 
@@ -730,26 +720,21 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       'YEAR 2개, QUARTER 4개로 각 조합에 데이터 있음.\n\n[A] ROLLUP(YEAR, QUARTER):\n- (YEAR, QUARTER) 소계: 2×4=8개\n- (YEAR) 소계: 2개\n- () 전체합계: 1개\n합계: 8+2+1=11개\n\n[B] CUBE(YEAR, QUARTER):\n- (YEAR, QUARTER): 2×4=8개\n- (YEAR): 2개\n- (QUARTER): 4개\n- (): 1개\n합계: 8+2+4+1=15개\n\n[C] GROUPING SETS((YEAR,QUARTER),(YEAR),()):\n- (YEAR, QUARTER): 8개\n- (YEAR): 2개\n- (): 1개\n합계: 8+2+1=11개\n\n따라서 A=11, B=15, C=11.',
-    options: [
-      'A=11, B=15, C=11',
-      'A=11, B=15, C=13',
-      'A=10, B=15, C=11',
-      'A=11, B=11, C=15',
-    ],
+    options: ['A=11, B=15, C=11', 'A=11, B=15, C=13', 'A=10, B=15, C=11', 'A=11, B=11, C=15'],
     points: 10,
   },
   {
     id: 'exam8_p38',
     title: '38. UNION과 UNION ALL 차이',
     description:
-      '다음 두 SQL의 결과 행 수 차이에 대한 설명으로 올바른 것은?\n\n[테이블]\nA: (1,\'가\'),(2,\'나\'),(3,\'다\')\nB: (2,\'나\'),(3,\'라\'),(4,\'마\')\n\n[SQL1] SELECT * FROM A UNION SELECT * FROM B\n[SQL2] SELECT * FROM A UNION ALL SELECT * FROM B',
+      "다음 두 SQL의 결과 행 수 차이에 대한 설명으로 올바른 것은?\n\n[테이블]\nA: (1,'가'),(2,'나'),(3,'다')\nB: (2,'나'),(3,'라'),(4,'마')\n\n[SQL1] SELECT * FROM A UNION SELECT * FROM B\n[SQL2] SELECT * FROM A UNION ALL SELECT * FROM B",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '집합연산',
     correctRate: 80,
     answer: '3',
     explanation:
-      'UNION은 중복을 제거하여 고유 행만 반환합니다. A와 B의 공통 행은 (2,\'나\')입니다. UNION 결과: (1,가),(2,나),(3,다),(3,라),(4,마) → 5개 행. UNION ALL은 중복 제거 없이 모든 행을 합칩니다. A(3개)+B(3개)=6개 행. 따라서 SQL1은 5개, SQL2는 6개, 차이는 1개입니다. UNION은 SORT와 중복 제거를 위한 추가 처리가 필요하여 UNION ALL보다 성능이 낮습니다.',
+      "UNION은 중복을 제거하여 고유 행만 반환합니다. A와 B의 공통 행은 (2,'나')입니다. UNION 결과: (1,가),(2,나),(3,다),(3,라),(4,마) → 5개 행. UNION ALL은 중복 제거 없이 모든 행을 합칩니다. A(3개)+B(3개)=6개 행. 따라서 SQL1은 5개, SQL2는 6개, 차이는 1개입니다. UNION은 SORT와 중복 제거를 위한 추가 처리가 필요하여 UNION ALL보다 성능이 낮습니다.",
     options: [
       'SQL1=4개, SQL2=6개',
       'SQL1=5개, SQL2=5개',
@@ -803,8 +788,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
   {
     id: 'exam8_p41',
     title: '41. CTAS(CREATE TABLE AS SELECT) 특성',
-    description:
-      '다음 중 CTAS(CREATE TABLE AS SELECT)에 대한 설명으로 올바르지 않은 것은?',
+    description: '다음 중 CTAS(CREATE TABLE AS SELECT)에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'DDL',
@@ -843,8 +827,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
   {
     id: 'exam8_p43',
     title: '43. 제약 조건 종류와 특성',
-    description:
-      '다음 중 PRIMARY KEY, UNIQUE, NOT NULL 제약 조건을 올바르게 비교한 것은?',
+    description: '다음 중 PRIMARY KEY, UNIQUE, NOT NULL 제약 조건을 올바르게 비교한 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DDL',
@@ -894,19 +877,13 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'SAVEPOINT 시나리오 분석:\n- 초기: T = {1}\n- ① INSERT 2: T = {1,2}\n- ② SAVEPOINT SP1 설정: 현재 상태 {1,2} 저장\n- ③ INSERT 3: T = {1,2,3}\n- ④ SAVEPOINT SP2 설정: 현재 상태 {1,2,3} 저장\n- ⑤ INSERT 4: T = {1,2,3,4}\n- ⑥ UPDATE ID=1→10: T = {10,2,3,4}\n- ⑦ ROLLBACK TO SP2: SP2 시점({1,2,3})으로 복원\n\nROLLBACK TO SP2 후: T = {1,2,3}\n(SP2는 ④에서 설정되었으므로 ③의 INSERT 3은 유지, ⑤와 ⑥은 취소됨)\nSP1과 SP2 자체는 ROLLBACK 후에도 유효합니다(SP2 이후 설정된 SAVEPOINT만 무효화).',
-    options: [
-      'T = {1, 2}',
-      'T = {1}',
-      'T = {1, 2, 3}',
-      'T = {10, 2, 3}',
-    ],
+    options: ['T = {1, 2}', 'T = {1}', 'T = {1, 2, 3}', 'T = {10, 2, 3}'],
     points: 10,
   },
   {
     id: 'exam8_p46',
     title: '46. COMMIT과 LOCK 해제',
-    description:
-      '다음 중 트랜잭션의 COMMIT과 LOCK에 대한 설명으로 올바른 것은?',
+    description: '다음 중 트랜잭션의 COMMIT과 LOCK에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'TCL',
@@ -926,7 +903,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p47',
     title: '47. 암시적 COMMIT 발생 상황',
     description:
-      '다음 SQL 실행 시퀀스에서 암시적(Implicit) COMMIT이 발생하는 시점으로 올바른 것은?\n\n① INSERT INTO EMP VALUES(100, \'홍길동\', 10);\n② UPDATE EMP SET SAL = 5000 WHERE EMP_ID = 100;\n③ CREATE TABLE TEMP_LOG (LOG_ID NUMBER);\n④ DELETE FROM EMP WHERE EMP_ID = 100;\n⑤ COMMIT;',
+      "다음 SQL 실행 시퀀스에서 암시적(Implicit) COMMIT이 발생하는 시점으로 올바른 것은?\n\n① INSERT INTO EMP VALUES(100, '홍길동', 10);\n② UPDATE EMP SET SAL = 5000 WHERE EMP_ID = 100;\n③ CREATE TABLE TEMP_LOG (LOG_ID NUMBER);\n④ DELETE FROM EMP WHERE EMP_ID = 100;\n⑤ COMMIT;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'TCL',
@@ -970,7 +947,7 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p49',
     title: '49. CONNECT BY와 계층 쿼리',
     description:
-      '다음 Oracle 계층형 쿼리에서 LEVEL 값과 PRIOR의 역할로 올바른 것은?\n\nEMP(EMP_ID, EMP_NAME, MANAGER_ID)\n값: (1,\'CEO\',NULL), (2,\'부장\',1), (3,\'과장\',2), (4,\'대리\',3)\n\nSELECT EMP_ID, EMP_NAME, LEVEL\nFROM EMP\nSTART WITH MANAGER_ID IS NULL\nCONNECT BY PRIOR EMP_ID = MANAGER_ID;',
+      "다음 Oracle 계층형 쿼리에서 LEVEL 값과 PRIOR의 역할로 올바른 것은?\n\nEMP(EMP_ID, EMP_NAME, MANAGER_ID)\n값: (1,'CEO',NULL), (2,'부장',1), (3,'과장',2), (4,'대리',3)\n\nSELECT EMP_ID, EMP_NAME, LEVEL\nFROM EMP\nSTART WITH MANAGER_ID IS NULL\nCONNECT BY PRIOR EMP_ID = MANAGER_ID;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '계층형쿼리',
@@ -990,14 +967,14 @@ export const EXAM_8_PROBLEMS: Problem[] = [
     id: 'exam8_p50',
     title: '50. 계층 쿼리 NOCYCLE과 SYS_CONNECT_BY_PATH',
     description:
-      '다음 Oracle 계층형 쿼리 관련 설명으로 올바른 것은?\n\nSELECT EMP_ID, EMP_NAME,\n  SYS_CONNECT_BY_PATH(EMP_NAME, \'/\') AS FULL_PATH,\n  CONNECT_BY_ROOT EMP_NAME AS ROOT_NAME\nFROM EMP\nSTART WITH MANAGER_ID IS NULL\nCONNECT BY NOCYCLE PRIOR EMP_ID = MANAGER_ID;',
+      "다음 Oracle 계층형 쿼리 관련 설명으로 올바른 것은?\n\nSELECT EMP_ID, EMP_NAME,\n  SYS_CONNECT_BY_PATH(EMP_NAME, '/') AS FULL_PATH,\n  CONNECT_BY_ROOT EMP_NAME AS ROOT_NAME\nFROM EMP\nSTART WITH MANAGER_ID IS NULL\nCONNECT BY NOCYCLE PRIOR EMP_ID = MANAGER_ID;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '계층형쿼리',
     correctRate: 45,
     answer: '3',
     explanation:
-      'SYS_CONNECT_BY_PATH(컬럼, 구분자): 루트에서 현재 노드까지의 경로를 구분자로 연결하여 반환. 예: CEO→부장→과장 경로에서 과장의 SYS_CONNECT_BY_PATH는 \'/CEO/부장/과장\'.\n\nCONNECT_BY_ROOT 컬럼: 현재 계층의 루트(최상위) 노드의 컬럼 값을 반환.\n\nNOCYCLE: 데이터에 순환 참조(A→B→C→A)가 있을 때 무한 루프를 방지하며 순환 발견 시 해당 경로를 중단합니다. NOCYCLE 없이 순환 참조가 있으면 오류가 발생합니다.',
+      "SYS_CONNECT_BY_PATH(컬럼, 구분자): 루트에서 현재 노드까지의 경로를 구분자로 연결하여 반환. 예: CEO→부장→과장 경로에서 과장의 SYS_CONNECT_BY_PATH는 '/CEO/부장/과장'.\n\nCONNECT_BY_ROOT 컬럼: 현재 계층의 루트(최상위) 노드의 컬럼 값을 반환.\n\nNOCYCLE: 데이터에 순환 참조(A→B→C→A)가 있을 때 무한 루프를 방지하며 순환 발견 시 해당 경로를 중단합니다. NOCYCLE 없이 순환 참조가 있으면 오류가 발생합니다.",
     options: [
       'SYS_CONNECT_BY_PATH는 현재 노드에서 루트까지 역방향 경로를 반환한다.',
       'NOCYCLE을 사용하면 순환 참조가 있는 행 전체를 결과에서 제외한다.',

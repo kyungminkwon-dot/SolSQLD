@@ -10,8 +10,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p1',
     title: '1. 데이터 모델링의 3단계',
-    description:
-      '데이터 모델링의 3단계를 순서대로 나열한 것으로 올바른 것은?',
+    description: '데이터 모델링의 3단계를 순서대로 나열한 것으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -30,8 +29,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p2',
     title: '2. 엔터티의 특징',
-    description:
-      '다음 중 엔터티(Entity)의 특징으로 올바르지 않은 것은?',
+    description: '다음 중 엔터티(Entity)의 특징으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -50,8 +48,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p3',
     title: '3. 속성의 분류',
-    description:
-      '다음 중 속성(Attribute)의 분류 방법에 대한 설명으로 올바른 것은?',
+    description: '다음 중 속성(Attribute)의 분류 방법에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '데이터모델링',
@@ -70,8 +67,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p4',
     title: '4. 관계의 종류',
-    description:
-      '다음 중 관계(Relationship)에 대한 설명으로 올바르지 않은 것은?',
+    description: '다음 중 관계(Relationship)에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -90,8 +86,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p5',
     title: '5. 식별자의 종류',
-    description:
-      '다음 중 식별자(Identifier)에 대한 설명으로 올바른 것은?',
+    description: '다음 중 식별자(Identifier)에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '데이터모델링',
@@ -130,8 +125,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p7',
     title: '7. 제1정규형(1NF)',
-    description:
-      '제1정규형(1NF)에 대한 설명으로 올바른 것은?',
+    description: '제1정규형(1NF)에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '정규화',
@@ -150,8 +144,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p8',
     title: '8. 정규화 단계',
-    description:
-      '기본키가 아닌 모든 속성이 기본키에 완전 함수 종속되도록 하는 정규화 단계는?',
+    description: '기본키가 아닌 모든 속성이 기본키에 완전 함수 종속되도록 하는 정규화 단계는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '정규화',
@@ -159,19 +152,13 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       '제2정규형(2NF)은 부분 함수 종속을 제거하여, 기본키가 아닌 모든 속성이 기본키에 완전 함수 종속(Full Functional Dependency)되도록 합니다. 이는 기본키가 복합키인 경우에 주로 해당됩니다.',
-    options: [
-      '제1정규형(1NF)',
-      '제2정규형(2NF)',
-      '제3정규형(3NF)',
-      'BCNF',
-    ],
+    options: ['제1정규형(1NF)', '제2정규형(2NF)', '제3정규형(3NF)', 'BCNF'],
     points: 10,
   },
   {
     id: 'exam1_p9',
     title: '9. 트랜잭션의 특성',
-    description:
-      '다음 중 트랜잭션의 4가지 특성(ACID)에 해당하지 않는 것은?',
+    description: '다음 중 트랜잭션의 4가지 특성(ACID)에 해당하지 않는 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '정규화',
@@ -190,8 +177,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p10',
     title: '10. NULL의 특성',
-    description:
-      'NULL에 대한 설명으로 올바르지 않은 것은?',
+    description: 'NULL에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '정규화',
@@ -234,8 +220,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p12',
     title: '12. WHERE 절 연산자',
-    description:
-      '다음 중 WHERE 절에서 사용할 수 없는 연산자는?',
+    description: '다음 중 WHERE 절에서 사용할 수 없는 연산자는?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DML',
@@ -243,12 +228,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'BETWEEN, IN, LIKE는 모두 WHERE 절에서 사용 가능한 연산자입니다. HAVING은 연산자가 아니라 GROUP BY와 함께 사용되는 절(clause)입니다.',
-    options: [
-      'BETWEEN A AND B',
-      'IN (value1, value2, ...)',
-      'LIKE',
-      'HAVING',
-    ],
+    options: ['BETWEEN A AND B', 'IN (value1, value2, ...)', 'LIKE', 'HAVING'],
     points: 10,
   },
   {
@@ -303,12 +283,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'DISTINCT DEPTNO는 중복을 제거하여 10, 20, 30의 3개 값만 남기고, COUNT 함수로 개수를 세면 3이 됩니다.',
-    options: [
-      '6',
-      '2',
-      '3',
-      '1',
-    ],
+    options: ['6', '2', '3', '1'],
     points: 10,
   },
 
@@ -316,8 +291,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p16',
     title: '16. NVL 함수',
-    description:
-      '다음 SQL의 결과는?\n\nSELECT NVL(NULL, 100) FROM DUAL;',
+    description: '다음 SQL의 결과는?\n\nSELECT NVL(NULL, 100) FROM DUAL;',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
@@ -325,19 +299,13 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'NVL(expr1, expr2)는 expr1이 NULL이면 expr2를 반환합니다. 첫 번째 인수가 NULL이므로 100을 반환합니다.',
-    options: [
-      'NULL',
-      '100',
-      '0',
-      '오류 발생',
-    ],
+    options: ['NULL', '100', '0', '오류 발생'],
     points: 10,
   },
   {
     id: 'exam1_p17',
     title: '17. DECODE 함수',
-    description:
-      "다음 SQL의 결과는?\n\nSELECT DECODE(10, 10, 'A', 20, 'B', 'C') FROM DUAL;",
+    description: "다음 SQL의 결과는?\n\nSELECT DECODE(10, 10, 'A', 20, 'B', 'C') FROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
@@ -345,39 +313,27 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       "DECODE(expr, search1, result1, search2, result2, ..., default)에서 expr=10이고 search1=10이 일치하므로 result1인 'A'를 반환합니다.",
-    options: [
-      'A',
-      'B',
-      'C',
-      'NULL',
-    ],
+    options: ['A', 'B', 'C', 'NULL'],
     points: 10,
   },
   {
     id: 'exam1_p18',
     title: '18. CASE 표현식',
     description:
-      '다음 SQL의 결과는?\n\nSELECT CASE WHEN 10 > 5 THEN \'참\' ELSE \'거짓\' END FROM DUAL;',
+      "다음 SQL의 결과는?\n\nSELECT CASE WHEN 10 > 5 THEN '참' ELSE '거짓' END FROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
     correctRate: 85,
     answer: '1',
-    explanation:
-      'CASE WHEN 조건이 10 > 5이고 이는 TRUE이므로 THEN 절의 \'참\'을 반환합니다.',
-    options: [
-      '참',
-      '거짓',
-      'NULL',
-      '오류 발생',
-    ],
+    explanation: "CASE WHEN 조건이 10 > 5이고 이는 TRUE이므로 THEN 절의 '참'을 반환합니다.",
+    options: ['참', '거짓', 'NULL', '오류 발생'],
     points: 10,
   },
   {
     id: 'exam1_p19',
     title: '19. 문자 함수',
-    description:
-      "다음 SQL의 결과는?\n\nSELECT SUBSTR('DATABASE', 1, 4) FROM DUAL;",
+    description: "다음 SQL의 결과는?\n\nSELECT SUBSTR('DATABASE', 1, 4) FROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
@@ -385,12 +341,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       "SUBSTR(문자열, 시작위치, 길이)에서 'DATABASE'의 1번째 위치부터 4글자를 추출하면 'DATA'가 됩니다.",
-    options: [
-      'DATA',
-      'DATAB',
-      'BASE',
-      'ATAS',
-    ],
+    options: ['DATA', 'DATAB', 'BASE', 'ATAS'],
     points: 10,
   },
   {
@@ -405,19 +356,13 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       '집계 함수(AVG, SUM 등)는 NULL을 제외하고 계산합니다. NULL을 제외한 값은 300, 500, 200이므로 AVG = (300+500+200)/3 ≈ 333.33입니다. NULL을 포함한 5로 나누지 않습니다.',
-    options: [
-      '200',
-      '100',
-      '333.33 (근사값)',
-      '0',
-    ],
+    options: ['200', '100', '333.33 (근사값)', '0'],
     points: 10,
   },
   {
     id: 'exam1_p21',
     title: '21. COALESCE 함수',
-    description:
-      '다음 SQL의 결과는?\n\nSELECT COALESCE(NULL, NULL, 300, 400) FROM DUAL;',
+    description: '다음 SQL의 결과는?\n\nSELECT COALESCE(NULL, NULL, 300, 400) FROM DUAL;',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
@@ -425,12 +370,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'COALESCE 함수는 인수 목록에서 NULL이 아닌 첫 번째 값을 반환합니다. 첫 번째와 두 번째가 NULL이므로 세 번째 값인 300을 반환합니다.',
-    options: [
-      'NULL',
-      '300',
-      '400',
-      '700',
-    ],
+    options: ['NULL', '300', '400', '700'],
     points: 10,
   },
 
@@ -438,8 +378,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p22',
     title: '22. INNER JOIN',
-    description:
-      '다음 중 INNER JOIN에 대한 설명으로 올바른 것은?',
+    description: '다음 중 INNER JOIN에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'JOIN',
@@ -467,12 +406,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'LEFT OUTER JOIN은 왼쪽 테이블(EMP)의 모든 행을 보존합니다. EMP에 5건이 있으므로 결과는 최소 5건이며, 일치하지 않는 1건의 DEPT 컬럼은 NULL로 채워집니다.',
-    options: [
-      '4건',
-      '9건',
-      '5건',
-      '6건',
-    ],
+    options: ['4건', '9건', '5건', '6건'],
     points: 10,
   },
   {
@@ -487,19 +421,13 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'CROSS JOIN(교차 조인)은 카테시안 곱(Cartesian Product)을 생성합니다. 3 × 4 = 12건의 결과가 반환됩니다.',
-    options: [
-      '3건',
-      '7건',
-      '12건',
-      '4건',
-    ],
+    options: ['3건', '7건', '12건', '4건'],
     points: 10,
   },
   {
     id: 'exam1_p25',
     title: '25. NATURAL JOIN',
-    description:
-      'NATURAL JOIN에 대한 설명으로 올바르지 않은 것은?',
+    description: 'NATURAL JOIN에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -558,8 +486,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p28',
     title: '28. FULL OUTER JOIN',
-    description:
-      'FULL OUTER JOIN에 대한 설명으로 올바른 것은?',
+    description: 'FULL OUTER JOIN에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -578,8 +505,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p29',
     title: '29. 다중 테이블 JOIN',
-    description:
-      '3개 테이블(A, B, C)을 조인할 때, 올바른 ANSI 표준 SQL 구문은?',
+    description: '3개 테이블(A, B, C)을 조인할 때, 올바른 ANSI 표준 SQL 구문은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'JOIN',
@@ -609,19 +535,13 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       '서브쿼리가 AVG(SAL)이라는 단일 값을 반환하므로 단일행 서브쿼리입니다. 단일행 서브쿼리는 =, >, <, >= 등의 비교 연산자와 함께 사용합니다.',
-    options: [
-      '단일행 서브쿼리',
-      '다중행 서브쿼리',
-      '상관 서브쿼리',
-      '스칼라 서브쿼리',
-    ],
+    options: ['단일행 서브쿼리', '다중행 서브쿼리', '상관 서브쿼리', '스칼라 서브쿼리'],
     points: 10,
   },
   {
     id: 'exam1_p31',
     title: '31. 다중행 서브쿼리 연산자',
-    description:
-      '다중행 서브쿼리에서 사용할 수 있는 연산자가 아닌 것은?',
+    description: '다중행 서브쿼리에서 사용할 수 있는 연산자가 아닌 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '서브쿼리',
@@ -629,12 +549,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'IN, ANY, ALL은 다중행 서브쿼리에서 사용 가능한 연산자입니다. = 연산자는 단일행 서브쿼리에서만 사용할 수 있으며, 다중행 서브쿼리에서 = 를 쓰면 오류가 발생합니다.',
-    options: [
-      'IN',
-      'ANY',
-      'ALL',
-      '= (단독 사용)',
-    ],
+    options: ['IN', 'ANY', 'ALL', '= (단독 사용)'],
     points: 10,
   },
   {
@@ -660,8 +575,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p33',
     title: '33. EXISTS 서브쿼리',
-    description:
-      'EXISTS 서브쿼리에 대한 설명으로 올바른 것은?',
+    description: 'EXISTS 서브쿼리에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '서브쿼리',
@@ -680,8 +594,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p34',
     title: '34. 스칼라 서브쿼리',
-    description:
-      '스칼라 서브쿼리에 대한 설명으로 올바르지 않은 것은?',
+    description: '스칼라 서브쿼리에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '서브쿼리',
@@ -762,8 +675,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p38',
     title: '38. LAG / LEAD 함수',
-    description:
-      'LAG(SAL, 1, 0) OVER (ORDER BY HIREDATE)의 의미로 올바른 것은?',
+    description: 'LAG(SAL, 1, 0) OVER (ORDER BY HIREDATE)의 의미로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '윈도우함수',
@@ -784,8 +696,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p39',
     title: '39. UNION vs UNION ALL',
-    description:
-      'UNION과 UNION ALL의 차이로 올바른 것은?',
+    description: 'UNION과 UNION ALL의 차이로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '집합연산',
@@ -804,8 +715,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p40',
     title: '40. INTERSECT와 MINUS',
-    description:
-      'A = {1, 2, 3, 4}, B = {3, 4, 5, 6}일 때,\nA MINUS B의 결과는?',
+    description: 'A = {1, 2, 3, 4}, B = {3, 4, 5, 6}일 때,\nA MINUS B의 결과는?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '집합연산',
@@ -813,12 +723,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'MINUS(또는 EXCEPT)는 첫 번째 집합에서 두 번째 집합과 겹치는 부분을 제거합니다. A에서 B와 겹치는 3, 4를 제거하면 {1, 2}가 남습니다.',
-    options: [
-      '{3, 4}',
-      '{1, 2}',
-      '{5, 6}',
-      '{1, 2, 3, 4, 5, 6}',
-    ],
+    options: ['{3, 4}', '{1, 2}', '{5, 6}', '{1, 2, 3, 4, 5, 6}'],
     points: 10,
   },
   {
@@ -844,8 +749,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p42',
     title: '42. CUBE',
-    description:
-      'CUBE와 ROLLUP의 차이에 대한 설명으로 올바른 것은?',
+    description: 'CUBE와 ROLLUP의 차이에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '집합연산',
@@ -866,8 +770,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p43',
     title: '43. DDL 명령어',
-    description:
-      '다음 중 DDL(Data Definition Language)에 해당하지 않는 것은?',
+    description: '다음 중 DDL(Data Definition Language)에 해당하지 않는 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DDL',
@@ -875,19 +778,13 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'DDL은 CREATE, ALTER, DROP, TRUNCATE 등 데이터 구조를 정의하는 명령어입니다. INSERT는 데이터를 조작하는 DML(Data Manipulation Language)에 해당합니다.',
-    options: [
-      'CREATE',
-      'ALTER',
-      'TRUNCATE',
-      'INSERT',
-    ],
+    options: ['CREATE', 'ALTER', 'TRUNCATE', 'INSERT'],
     points: 10,
   },
   {
     id: 'exam1_p44',
     title: '44. 제약조건',
-    description:
-      '다음 중 PRIMARY KEY 제약조건에 대한 설명으로 올바르지 않은 것은?',
+    description: '다음 중 PRIMARY KEY 제약조건에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DDL',
@@ -906,8 +803,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p45',
     title: '45. TRUNCATE vs DELETE',
-    description:
-      'TRUNCATE TABLE과 DELETE FROM의 차이에 대한 설명으로 올바른 것은?',
+    description: 'TRUNCATE TABLE과 DELETE FROM의 차이에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DDL',
@@ -926,8 +822,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p46',
     title: '46. ALTER TABLE',
-    description:
-      '기존 테이블에 컬럼을 추가하는 SQL로 올바른 것은?',
+    description: '기존 테이블에 컬럼을 추가하는 SQL로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DDL',
@@ -949,7 +844,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     id: 'exam1_p47',
     title: '47. COMMIT과 ROLLBACK',
     description:
-      '다음 SQL 실행 후 테이블에 남아있는 데이터는?\n\nINSERT INTO DEPT VALUES (50, \'연구소\', \'대전\');\nSAVEPOINT SP1;\nINSERT INTO DEPT VALUES (60, \'품질팀\', \'광주\');\nROLLBACK TO SP1;\nCOMMIT;',
+      "다음 SQL 실행 후 테이블에 남아있는 데이터는?\n\nINSERT INTO DEPT VALUES (50, '연구소', '대전');\nSAVEPOINT SP1;\nINSERT INTO DEPT VALUES (60, '품질팀', '광주');\nROLLBACK TO SP1;\nCOMMIT;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'TCL',
@@ -968,8 +863,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p48',
     title: '48. TCL 명령어',
-    description:
-      '다음 중 TCL(Transaction Control Language)에 해당하지 않는 것은?',
+    description: '다음 중 TCL(Transaction Control Language)에 해당하지 않는 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'TCL',
@@ -977,12 +871,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'TCL은 COMMIT, ROLLBACK, SAVEPOINT로 구성됩니다. GRANT는 DCL(Data Control Language)에 해당합니다.',
-    options: [
-      'COMMIT',
-      'ROLLBACK',
-      'SAVEPOINT',
-      'GRANT',
-    ],
+    options: ['COMMIT', 'ROLLBACK', 'SAVEPOINT', 'GRANT'],
     points: 10,
   },
 
@@ -990,8 +879,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p49',
     title: '49. GRANT와 REVOKE',
-    description:
-      '다음 SQL에 대한 설명으로 올바른 것은?\n\nGRANT SELECT, INSERT ON EMP TO user1;',
+    description: '다음 SQL에 대한 설명으로 올바른 것은?\n\nGRANT SELECT, INSERT ON EMP TO user1;',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DCL',
@@ -1012,8 +900,7 @@ export const EXAM_1_PROBLEMS: Problem[] = [
   {
     id: 'exam1_p50',
     title: '50. 계층형 쿼리',
-    description:
-      'Oracle의 계층형 쿼리에서 START WITH와 CONNECT BY의 역할로 올바른 것은?',
+    description: 'Oracle의 계층형 쿼리에서 START WITH와 CONNECT BY의 역할로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '계층형쿼리',
