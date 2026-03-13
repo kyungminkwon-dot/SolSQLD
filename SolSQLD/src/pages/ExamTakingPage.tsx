@@ -1,12 +1,15 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react';
 import CountdownTimer from '../components/CountdownTimer';
 import Notepad from '../components/Notepad';
 import { logEvent } from '../utils/eventLogger';
 import { useAuth } from '../contexts/AuthContext';
 import { getExamProblems } from '../data/exams';
+import DescriptionRenderer from '../components/DescriptionRenderer';
 import type { Problem } from '../types';
+
+const PROBLEMS_PER_PAGE = 5;
 
 const EXAM_TIME_SECONDS = 90 * 60; // 90분
 
@@ -23,10 +26,10 @@ function ChoiceProblem({
 }) {
   return (
     <div className="mb-8 break-inside-avoid">
-      <p className="font-semibold text-slate-800 mb-3 leading-relaxed">
+      <div className="font-semibold text-slate-800 mb-3 leading-relaxed">
         <span className="text-primary-600 mr-1">{index + 1}.</span>
-        {problem.description}
-      </p>
+        <DescriptionRenderer text={problem.description} />
+      </div>
       <div className="space-y-2 ml-4">
         {problem.options?.map((opt, oi) => {
           const val = String(oi + 1);
@@ -67,6 +70,19 @@ export default function ExamTakingPage() {
     return true;
   });
   const [showSubmitConfirm, setShowSubmitConfirm] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const totalPages = Math.ceil(problems.length / PROBLEMS_PER_PAGE);
+  const pageProblems = useMemo(
+    () => problems.slice(currentPage * PROBLEMS_PER_PAGE, (currentPage + 1) * PROBLEMS_PER_PAGE),
+    [problems, currentPage]
+  );
+  const pageStartIndex = currentPage * PROBLEMS_PER_PAGE;
+
+  const goToPage = useCallback((page: number) => {
+    setCurrentPage(Math.max(0, Math.min(page, totalPages - 1)));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [totalPages]);
 
   const handleSelect = useCallback(
     (problemId: string, val: string) => {
@@ -122,25 +138,79 @@ export default function ExamTakingPage() {
 
       {/* A4 스케일 레이아웃 + 사이드 메모장 */}
       <div className="max-w-6xl mx-auto px-4 mt-6 flex gap-5">
-        {/* A4 영역 */}
-        <div className="flex-1 min-w-0">
-          <div className="w-a4 min-h-a4 bg-white shadow-xl mx-auto p-12 rounded-sm border border-slate-300">
-            <div className="text-center mb-8 pb-4 border-b-2 border-sqld-navy">
-              <h1 className="text-xl font-bold text-sqld-navy">SQLD 모의고사 {id}회</h1>
-              <p className="text-sm text-slate-500 mt-1">
-                총 {problems.length}문항 · 제한시간 90분 · 60점 이상 합격
-              </p>
-            </div>
+        {/* A4 영역 + 좌우 네비게이션 */}
+        <div className="flex-1 min-w-0 relative">
+          {/* 왼쪽 페이지 넘기기 버튼 */}
+          {currentPage > 0 && (
+            <button
+              onClick={() => goToPage(currentPage - 1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 z-20 w-10 h-20 flex items-center justify-center bg-slate-800/30 hover:bg-slate-800/70 text-white rounded-lg transition-all duration-200"
+              aria-label="이전 페이지"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+          )}
 
-            {problems.map((problem, index) => (
+          {/* 오른쪽 페이지 넘기기 버튼 */}
+          {currentPage < totalPages - 1 && (
+            <button
+              onClick={() => goToPage(currentPage + 1)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 z-20 w-10 h-20 flex items-center justify-center bg-slate-800/30 hover:bg-slate-800/70 text-white rounded-lg transition-all duration-200"
+              aria-label="다음 페이지"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          )}
+
+          <div className="w-a4 min-h-a4 bg-white shadow-xl mx-auto p-12 rounded-sm border border-slate-300">
+            {/* 헤더는 첫 페이지에만 */}
+            {currentPage === 0 && (
+              <div className="text-center mb-8 pb-4 border-b-2 border-sqld-navy">
+                <h1 className="text-xl font-bold text-sqld-navy">SQLD 모의고사 {id}회</h1>
+                <p className="text-sm text-slate-500 mt-1">
+                  총 {problems.length}문항 · 제한시간 90분 · 60점 이상 합격
+                </p>
+              </div>
+            )}
+
+            {/* 페이지 상단 번호 표시 (2페이지부터) */}
+            {currentPage > 0 && (
+              <div className="text-right text-xs text-slate-400 mb-6">
+                {pageStartIndex + 1}~{Math.min(pageStartIndex + PROBLEMS_PER_PAGE, problems.length)}번 문제
+              </div>
+            )}
+
+            {pageProblems.map((problem, index) => (
               <ChoiceProblem
                 key={problem.id}
                 problem={problem}
-                index={index}
+                index={pageStartIndex + index}
                 selected={answers[problem.id]}
                 onSelect={(val) => handleSelect(problem.id, val)}
               />
             ))}
+
+            {/* 페이지 하단 인디케이터 */}
+            <div className="mt-8 pt-4 border-t border-slate-200 flex items-center justify-between">
+              <span className="text-xs text-slate-400">
+                {currentPage + 1} / {totalPages} 페이지
+              </span>
+              <div className="flex gap-1.5">
+                {Array.from({ length: totalPages }, (_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goToPage(i)}
+                    className={`w-7 h-7 rounded text-xs font-medium transition-colors ${
+                      i === currentPage
+                        ? 'bg-sqld-navy text-white'
+                        : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
+                    }`}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
