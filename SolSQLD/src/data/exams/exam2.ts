@@ -10,8 +10,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p1',
     title: '1. 데이터 모델링의 정의',
-    description:
-      '다음 중 데이터 모델링에 대한 설명으로 올바르지 않은 것은?',
+    description: '다음 중 데이터 모델링에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -30,8 +29,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p2',
     title: '2. 엔터티의 분류',
-    description:
-      '다음 중 엔터티를 발생 시점에 따라 분류할 때, 올바른 조합은?',
+    description: '다음 중 엔터티를 발생 시점에 따라 분류할 때, 올바른 조합은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -50,8 +48,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p3',
     title: '3. 속성의 도메인',
-    description:
-      '속성의 도메인(Domain)에 대한 설명으로 올바른 것은?',
+    description: '속성의 도메인(Domain)에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -79,12 +76,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       '한 교수가 여러 과목을 담당하고(1:M), 한 과목은 한 교수만 담당하므로 교수:과목 = 1:M 관계입니다.',
-    options: [
-      '1:1',
-      '1:M',
-      'M:N',
-      'M:1',
-    ],
+    options: ['1:1', '1:M', 'M:N', 'M:1'],
     points: 10,
   },
   {
@@ -98,20 +90,14 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     correctRate: 72,
     answer: '3',
     explanation:
-      'IE(Information Engineering) 표기법에서 필수 참여는 실선(|)으로, 선택 참여는 원(O)으로 표현합니다. 까마귀발(Crow\'s Foot) 기호는 다수(Many)를 나타냅니다.',
-    options: [
-      '원(O)',
-      '점선',
-      '실선(|)',
-      '화살표(→)',
-    ],
+      "IE(Information Engineering) 표기법에서 필수 참여는 실선(|)으로, 선택 참여는 원(O)으로 표현합니다. 까마귀발(Crow's Foot) 기호는 다수(Many)를 나타냅니다.",
+    options: ['원(O)', '점선', '실선(|)', '화살표(→)'],
     points: 10,
   },
   {
     id: 'exam2_p6',
     title: '6. 본질식별자와 인조식별자',
-    description:
-      '다음 중 인조식별자(Artificial Identifier)를 사용하는 경우로 적합한 것은?',
+    description: '다음 중 인조식별자(Artificial Identifier)를 사용하는 경우로 적합한 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '데이터모델링',
@@ -130,8 +116,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p7',
     title: '7. 제3정규형(3NF)',
-    description:
-      '제3정규형(3NF)에서 제거하는 종속성은?',
+    description: '제3정규형(3NF)에서 제거하는 종속성은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '정규화',
@@ -139,19 +124,13 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       '제3정규형은 이행 함수 종속(Transitive Functional Dependency)을 제거합니다. A→B, B→C일 때 A→C인 이행 종속이 존재하면, C를 별도 테이블로 분리합니다.',
-    options: [
-      '반복 그룹',
-      '부분 함수 종속',
-      '이행 함수 종속',
-      '다치 종속',
-    ],
+    options: ['반복 그룹', '부분 함수 종속', '이행 함수 종속', '다치 종속'],
     points: 10,
   },
   {
     id: 'exam2_p8',
     title: '8. BCNF',
-    description:
-      'BCNF(Boyce-Codd Normal Form)에 대한 설명으로 올바른 것은?',
+    description: 'BCNF(Boyce-Codd Normal Form)에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '정규화',
@@ -170,8 +149,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p9',
     title: '9. 반정규화',
-    description:
-      '반정규화(Denormalization)를 수행하는 주된 이유로 올바른 것은?',
+    description: '반정규화(Denormalization)를 수행하는 주된 이유로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '정규화',
@@ -190,8 +168,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p10',
     title: '10. 정규화와 이상현상',
-    description:
-      '정규화를 수행하지 않았을 때 발생할 수 있는 이상(Anomaly) 현상이 아닌 것은?',
+    description: '정규화를 수행하지 않았을 때 발생할 수 있는 이상(Anomaly) 현상이 아닌 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '정규화',
@@ -214,8 +191,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p11',
     title: '11. SELECT 절의 실행 순서',
-    description:
-      'SQL의 논리적 실행 순서로 올바른 것은?',
+    description: 'SQL의 논리적 실행 순서로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DML',
@@ -243,12 +219,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'NULL은 = 연산자로 비교할 수 없습니다. COMM = NULL의 결과는 항상 UNKNOWN이므로 어떤 행도 반환되지 않습니다. NULL을 비교하려면 IS NULL을 사용해야 합니다.',
-    options: [
-      '5건',
-      '2건',
-      '3건',
-      '0건',
-    ],
+    options: ['5건', '2건', '3건', '0건'],
     points: 10,
   },
   {
@@ -274,8 +245,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p14',
     title: '14. ORDER BY와 NULL',
-    description:
-      'Oracle에서 ORDER BY ASC 정렬 시 NULL 값의 위치는?',
+    description: 'Oracle에서 ORDER BY ASC 정렬 시 NULL 값의 위치는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DML',
@@ -296,8 +266,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p15',
     title: '15. NULLIF 함수',
-    description:
-      '다음 SQL의 결과는?\n\nSELECT NULLIF(100, 100) FROM DUAL;',
+    description: '다음 SQL의 결과는?\n\nSELECT NULLIF(100, 100) FROM DUAL;',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
@@ -305,12 +274,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       'NULLIF(expr1, expr2)는 두 값이 같으면 NULL을, 다르면 expr1을 반환합니다. 100과 100이 같으므로 NULL을 반환합니다.',
-    options: [
-      'NULL',
-      '100',
-      '0',
-      '200',
-    ],
+    options: ['NULL', '100', '0', '200'],
     points: 10,
   },
   {
@@ -325,19 +289,13 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'ADD_MONTHS(날짜, 숫자)는 날짜에서 지정한 개월 수를 더합니다. -3이므로 3개월 전인 2024-12-15가 됩니다.',
-    options: [
-      '2025-06-15',
-      '2025-03-12',
-      '2024-12-15',
-      '2025-03-18',
-    ],
+    options: ['2025-06-15', '2025-03-12', '2024-12-15', '2025-03-18'],
     points: 10,
   },
   {
     id: 'exam2_p17',
     title: '17. 숫자 함수',
-    description:
-      '다음 SQL의 결과는?\n\nSELECT TRUNC(156.78, -1) FROM DUAL;',
+    description: '다음 SQL의 결과는?\n\nSELECT TRUNC(156.78, -1) FROM DUAL;',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '함수',
@@ -345,12 +303,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'TRUNC(숫자, 자릿수)에서 자릿수가 음수이면 정수부를 절삭합니다. -1은 일의 자리에서 절삭하므로 150이 됩니다.',
-    options: [
-      '156',
-      '150',
-      '160',
-      '156.7',
-    ],
+    options: ['156', '150', '160', '156.7'],
     points: 10,
   },
   {
@@ -365,12 +318,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       "CASE WHEN은 위에서부터 순차적으로 조건을 평가하며, 처음으로 TRUE인 조건의 결과를 반환합니다. 10>20은 FALSE, 10>5는 TRUE이므로 'B'를 반환합니다.",
-    options: [
-      'A',
-      'B',
-      'C',
-      'D',
-    ],
+    options: ['A', 'B', 'C', 'D'],
     points: 10,
   },
   {
@@ -385,19 +333,13 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       "TO_CHAR(숫자, 형식)에서 '9,999,999' 형식은 천 단위 구분자를 포함합니다. 1234567은 '1,234,567'로 변환됩니다.",
-    options: [
-      '1,234,567',
-      '1234567',
-      '123,4567',
-      '오류 발생',
-    ],
+    options: ['1,234,567', '1234567', '123,4567', '오류 발생'],
     points: 10,
   },
   {
     id: 'exam2_p20',
     title: '20. GROUP BY와 집계함수',
-    description:
-      'GROUP BY 절에 대한 설명으로 올바르지 않은 것은?',
+    description: 'GROUP BY 절에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
@@ -418,8 +360,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p21',
     title: '21. USING 절',
-    description:
-      'JOIN에서 USING 절에 대한 설명으로 올바른 것은?',
+    description: 'JOIN에서 USING 절에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -447,19 +388,13 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'RIGHT OUTER JOIN은 오른쪽 테이블(B)의 모든 행을 보존합니다. B에 {2,3,4,5}가 있으므로 4건이 반환됩니다. A에 없는 4, 5의 A 컬럼은 NULL로 채워집니다.',
-    options: [
-      '3건',
-      '4건',
-      '5건',
-      '2건',
-    ],
+    options: ['3건', '4건', '5건', '2건'],
     points: 10,
   },
   {
     id: 'exam2_p23',
     title: '23. 비등가 조인',
-    description:
-      '비등가 조인(Non-Equi Join)에 대한 설명으로 올바른 것은?',
+    description: '비등가 조인(Non-Equi Join)에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'JOIN',
@@ -478,8 +413,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p24',
     title: '24. Oracle 조인 구문',
-    description:
-      'Oracle에서 LEFT OUTER JOIN을 전통적 방식으로 작성한 것은?',
+    description: 'Oracle에서 LEFT OUTER JOIN을 전통적 방식으로 작성한 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -499,7 +433,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     id: 'exam2_p25',
     title: '25. 조인과 서브쿼리 변환',
     description:
-      '다음 SQL과 동일한 결과를 반환하는 것은?\n\nSELECT E.ENAME, D.DNAME\nFROM EMP E JOIN DEPT D ON E.DEPTNO = D.DEPTNO\nWHERE D.LOC = \'서울\';',
+      "다음 SQL과 동일한 결과를 반환하는 것은?\n\nSELECT E.ENAME, D.DNAME\nFROM EMP E JOIN DEPT D ON E.DEPTNO = D.DEPTNO\nWHERE D.LOC = '서울';",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'JOIN',
@@ -527,19 +461,13 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'INNER JOIN은 양쪽 테이블에서 조인 조건이 일치하는 행만 반환합니다. 일치하는 행이 2건이므로 결과는 2건입니다.',
-    options: [
-      '5건',
-      '2건',
-      '8건',
-      '3건',
-    ],
+    options: ['5건', '2건', '8건', '3건'],
     points: 10,
   },
   {
     id: 'exam2_p27',
     title: '27. 다중 조인 시 주의사항',
-    description:
-      '3개 이상의 테이블을 OUTER JOIN할 때 주의해야 할 점은?',
+    description: '3개 이상의 테이블을 OUTER JOIN할 때 주의해야 할 점은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'JOIN',
@@ -560,8 +488,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p28',
     title: '28. 상관 서브쿼리',
-    description:
-      '상관 서브쿼리(Correlated Subquery)에 대한 설명으로 올바른 것은?',
+    description: '상관 서브쿼리(Correlated Subquery)에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '서브쿼리',
@@ -580,8 +507,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p29',
     title: '29. IN vs EXISTS',
-    description:
-      'IN과 EXISTS의 차이에 대한 설명으로 올바른 것은?',
+    description: 'IN과 EXISTS의 차이에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '서브쿼리',
@@ -600,8 +526,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p30',
     title: '30. 서브쿼리의 위치',
-    description:
-      '다음 중 서브쿼리를 사용할 수 없는 위치는?',
+    description: '다음 중 서브쿼리를 사용할 수 없는 위치는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '서브쿼리',
@@ -609,19 +534,13 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       '서브쿼리는 SELECT 절(스칼라), FROM 절(인라인 뷰), WHERE 절, HAVING 절 등에서 사용 가능합니다. GROUP BY 절에는 서브쿼리를 사용할 수 없습니다.',
-    options: [
-      'SELECT 절',
-      'FROM 절',
-      'HAVING 절',
-      'GROUP BY 절',
-    ],
+    options: ['SELECT 절', 'FROM 절', 'HAVING 절', 'GROUP BY 절'],
     points: 10,
   },
   {
     id: 'exam2_p31',
     title: '31. ANY / ALL 연산자',
-    description:
-      '서브쿼리가 (100, 200, 300)을 반환할 때,\nWHERE SAL > ALL (서브쿼리)의 의미는?',
+    description: '서브쿼리가 (100, 200, 300)을 반환할 때,\nWHERE SAL > ALL (서브쿼리)의 의미는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '서브쿼리',
@@ -640,8 +559,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p32',
     title: '32. 다중 컬럼 서브쿼리',
-    description:
-      '다중 컬럼 서브쿼리에 대한 설명으로 올바른 것은?',
+    description: '다중 컬럼 서브쿼리에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '서브쿼리',
@@ -662,8 +580,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p33',
     title: '33. 윈도우 함수 기본',
-    description:
-      '윈도우 함수에 대한 설명으로 올바르지 않은 것은?',
+    description: '윈도우 함수에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '윈도우함수',
@@ -682,8 +599,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p34',
     title: '34. NTILE 함수',
-    description:
-      '10건의 행을 NTILE(3)으로 나누면 각 그룹의 행 수는?',
+    description: '10건의 행을 NTILE(3)으로 나누면 각 그룹의 행 수는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '윈도우함수',
@@ -691,12 +607,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'NTILE(3)은 행을 3개 그룹으로 균등 분할합니다. 10건을 3으로 나누면 몫이 3, 나머지가 1이므로 첫 번째 그룹에 4건, 나머지 두 그룹에 3건씩 배분됩니다.',
-    options: [
-      '3건, 3건, 4건',
-      '4건, 3건, 3건',
-      '3건, 4건, 3건',
-      '4건, 4건, 2건',
-    ],
+    options: ['3건, 3건, 4건', '4건, 3건, 3건', '3건, 4건, 3건', '4건, 4건, 2건'],
     points: 10,
   },
   {
@@ -711,19 +622,13 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       'ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW는 파티션의 첫 행부터 현재 행까지의 범위를 지정합니다. 따라서 입사일 순으로 정렬된 급여의 누적 합계가 됩니다.',
-    options: [
-      '입사일순 급여 누적 합계',
-      '전체 급여 합계',
-      '부서별 급여 합계',
-      '현재 행의 급여만',
-    ],
+    options: ['입사일순 급여 누적 합계', '전체 급여 합계', '부서별 급여 합계', '현재 행의 급여만'],
     points: 10,
   },
   {
     id: 'exam2_p36',
     title: '36. FIRST_VALUE / LAST_VALUE',
-    description:
-      'FIRST_VALUE(SAL) OVER (PARTITION BY DEPTNO ORDER BY SAL)의 결과는?',
+    description: 'FIRST_VALUE(SAL) OVER (PARTITION BY DEPTNO ORDER BY SAL)의 결과는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '윈도우함수',
@@ -744,8 +649,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p37',
     title: '37. UNION 사용 조건',
-    description:
-      'UNION 사용 시 반드시 충족해야 하는 조건이 아닌 것은?',
+    description: 'UNION 사용 시 반드시 충족해야 하는 조건이 아닌 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '집합연산',
@@ -784,8 +688,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p39',
     title: '39. GROUPING 함수',
-    description:
-      'GROUPING 함수에 대한 설명으로 올바른 것은?',
+    description: 'GROUPING 함수에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '집합연산',
@@ -804,8 +707,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p40',
     title: '40. 집합 연산자와 정렬',
-    description:
-      '집합 연산자 사용 시 ORDER BY에 대한 설명으로 올바른 것은?',
+    description: '집합 연산자 사용 시 ORDER BY에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: '집합연산',
@@ -826,8 +728,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p41',
     title: '41. FOREIGN KEY',
-    description:
-      'FOREIGN KEY 제약조건에 대한 설명으로 올바르지 않은 것은?',
+    description: 'FOREIGN KEY 제약조건에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DDL',
@@ -866,8 +767,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p43',
     title: '43. DROP TABLE',
-    description:
-      'DROP TABLE에 대한 설명으로 올바르지 않은 것은?',
+    description: 'DROP TABLE에 대한 설명으로 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DDL',
@@ -888,8 +788,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p44',
     title: '44. 암시적 COMMIT',
-    description:
-      '다음 중 암시적(자동) COMMIT이 발생하는 경우는?',
+    description: '다음 중 암시적(자동) COMMIT이 발생하는 경우는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'TCL',
@@ -917,19 +816,13 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'ROLLBACK TO A는 SAVEPOINT A 이후의 모든 변경(2, 3 삽입)을 취소합니다. 이후 4를 삽입하고 COMMIT하면, 최종적으로 1과 4만 저장됩니다.',
-    options: [
-      '1, 2, 3, 4',
-      '1, 4',
-      '1, 2, 4',
-      '4만',
-    ],
+    options: ['1, 2, 3, 4', '1, 4', '1, 2, 4', '4만'],
     points: 10,
   },
   {
     id: 'exam2_p46',
     title: '46. 트랜잭션 격리 수준',
-    description:
-      '다음 중 트랜잭션 격리 수준(Isolation Level)이 아닌 것은?',
+    description: '다음 중 트랜잭션 격리 수준(Isolation Level)이 아닌 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'TCL',
@@ -937,12 +830,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'SQL 표준의 트랜잭션 격리 수준은 Read Uncommitted, Read Committed, Repeatable Read, Serializable의 4단계입니다. Read Only는 격리 수준이 아닙니다.',
-    options: [
-      'Read Uncommitted',
-      'Read Committed',
-      'Serializable',
-      'Read Only',
-    ],
+    options: ['Read Uncommitted', 'Read Committed', 'Serializable', 'Read Only'],
     points: 10,
   },
 
@@ -950,8 +838,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p47',
     title: '47. ROLE',
-    description:
-      '다음 중 ROLE에 대한 설명으로 올바른 것은?',
+    description: '다음 중 ROLE에 대한 설명으로 올바른 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DCL',
@@ -970,8 +857,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p48',
     title: '48. WITH GRANT OPTION',
-    description:
-      'GRANT SELECT ON EMP TO user1 WITH GRANT OPTION;에서\nWITH GRANT OPTION의 의미는?',
+    description: 'GRANT SELECT ON EMP TO user1 WITH GRANT OPTION;에서\nWITH GRANT OPTION의 의미는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DCL',
@@ -992,8 +878,7 @@ export const EXAM_2_PROBLEMS: Problem[] = [
   {
     id: 'exam2_p49',
     title: '49. LEVEL 의사컬럼',
-    description:
-      'Oracle 계층형 쿼리에서 LEVEL 의사컬럼(Pseudo Column)의 의미는?',
+    description: 'Oracle 계층형 쿼리에서 LEVEL 의사컬럼(Pseudo Column)의 의미는?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '계층형쿼리',

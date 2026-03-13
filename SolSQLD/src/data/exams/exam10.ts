@@ -91,8 +91,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
   {
     id: 'exam10_p5',
     title: '5. 데이터 모델의 품질 검증',
-    description:
-      '다음 중 데이터 모델 품질 검증 항목과 그 설명이 올바르게 짝지어지지 않은 것은?',
+    description: '다음 중 데이터 모델 품질 검증 항목과 그 설명이 올바르게 짝지어지지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '데이터모델링',
@@ -223,19 +222,14 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'LEFT OUTER JOIN이므로 왼쪽 테이블(창고)의 모든 행이 보존됩니다. 첫 번째 JOIN 결과: W1-I1(P100,50), W1-I2(P200,30), W2-I3(P100,20), W3-NULL-NULL-NULL → 4행. 두 번째 JOIN에서 재고가 있는 행은 품목과 매칭: W1-노트북-50, W1-모니터-30, W2-노트북-20. W3은 재고가 NULL이므로 품목코드도 NULL이어서 품목과 매칭되지 않지만 LEFT JOIN이므로 W3-NULL-NULL로 보존. 최종 4행 출력.',
-    options: [
-      '3행',
-      '6행',
-      '4행',
-      '9행',
-    ],
+    options: ['3행', '6행', '4행', '9행'],
     points: 10,
   },
   {
     id: 'exam10_p12',
     title: '12. CROSS JOIN과 조건 필터링',
     description:
-      '다음 SQL의 실행 결과에서 출력되는 행의 수는?\n\n[색상] 테이블 (3건): 빨강, 파랑, 초록\n[사이즈] 테이블 (4건): S, M, L, XL\n\nSELECT C.색상, S.사이즈\nFROM 색상 C\nCROSS JOIN 사이즈 S\nWHERE NOT (C.색상 = \'빨강\' AND S.사이즈 = \'XL\')\n  AND NOT (C.색상 = \'초록\' AND S.사이즈 IN (\'S\', \'M\'));',
+      "다음 SQL의 실행 결과에서 출력되는 행의 수는?\n\n[색상] 테이블 (3건): 빨강, 파랑, 초록\n[사이즈] 테이블 (4건): S, M, L, XL\n\nSELECT C.색상, S.사이즈\nFROM 색상 C\nCROSS JOIN 사이즈 S\nWHERE NOT (C.색상 = '빨강' AND S.사이즈 = 'XL')\n  AND NOT (C.색상 = '초록' AND S.사이즈 IN ('S', 'M'));",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'JOIN',
@@ -243,12 +237,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'CROSS JOIN은 3 × 4 = 12행을 생성합니다. 첫 번째 NOT 조건으로 빨강-XL 1행 제외, 두 번째 NOT 조건으로 초록-S, 초록-M 2행 제외. 제외 조건이 겹치지 않으므로 총 12 - 1 - 2 = 9행이 출력됩니다.',
-    options: [
-      '8행',
-      '9행',
-      '10행',
-      '12행',
-    ],
+    options: ['8행', '9행', '10행', '12행'],
     points: 10,
   },
   {
@@ -303,19 +292,14 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       'LEFT JOIN 후 INNER JOIN이 적용됩니다. 먼저 팀 LEFT JOIN 멤버: T1-M1(홍길동), T1-M2(김철수), T2-M3(이영희), T3-NULL. 이후 INNER JOIN 프로젝트배정: M1-PJ1, M1-PJ2, M3-PJ1만 매칭됩니다. M2(김철수)는 프로젝트배정이 없어 제거, T3도 멤버ID가 NULL이므로 제거. 최종 3행: (개발팀, 홍길동, PJ1), (개발팀, 홍길동, PJ2), (기획팀, 이영희, PJ1). LEFT JOIN 뒤에 INNER JOIN이 오면 LEFT JOIN의 보존 효과가 후속 INNER JOIN에 의해 제거될 수 있으므로 주의해야 합니다.',
-    options: [
-      '3행',
-      '4행',
-      '5행',
-      '6행',
-    ],
+    options: ['3행', '4행', '5행', '6행'],
     points: 10,
   },
   {
     id: 'exam10_p16',
     title: '16. FULL OUTER JOIN과 NULL 처리',
     description:
-      '다음 SQL의 실행 결과로 올바른 것은?\n\n[공급자] 테이블\n공급자ID | 공급자명\nS1       | 알파상사\nS2       | 베타무역\nS3       | 감마유통\n\n[납품] 테이블\n납품ID | 공급자ID | 자재코드\nD1     | S1       | MT01\nD2     | S2       | MT02\nD3     | S4       | MT03\n\nSELECT COALESCE(G.공급자명, \'미등록\') AS 공급자,\n       COALESCE(N.자재코드, \'납품없음\') AS 자재\nFROM 공급자 G\nFULL OUTER JOIN 납품 N ON G.공급자ID = N.공급자ID;',
+      "다음 SQL의 실행 결과로 올바른 것은?\n\n[공급자] 테이블\n공급자ID | 공급자명\nS1       | 알파상사\nS2       | 베타무역\nS3       | 감마유통\n\n[납품] 테이블\n납품ID | 공급자ID | 자재코드\nD1     | S1       | MT01\nD2     | S2       | MT02\nD3     | S4       | MT03\n\nSELECT COALESCE(G.공급자명, '미등록') AS 공급자,\n       COALESCE(N.자재코드, '납품없음') AS 자재\nFROM 공급자 G\nFULL OUTER JOIN 납품 N ON G.공급자ID = N.공급자ID;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'JOIN',
@@ -356,7 +340,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p18',
     title: '18. NULL과 비교 연산의 결과',
     description:
-      '다음 SQL의 실행 결과로 올바른 것은?\n\nSELECT CASE\n         WHEN NULL = NULL THEN \'같다\'\n         WHEN NULL <> NULL THEN \'다르다\'\n         WHEN NULL IS NULL THEN \'NULL이다\'\n         ELSE \'알수없다\'\n       END AS 결과\nFROM DUAL;',
+      "다음 SQL의 실행 결과로 올바른 것은?\n\nSELECT CASE\n         WHEN NULL = NULL THEN '같다'\n         WHEN NULL <> NULL THEN '다르다'\n         WHEN NULL IS NULL THEN 'NULL이다'\n         ELSE '알수없다'\n       END AS 결과\nFROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
@@ -364,39 +348,29 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'SQL에서 NULL과의 모든 비교 연산(=, <>, <, > 등)은 UNKNOWN을 반환합니다. NULL = NULL은 TRUE가 아니라 UNKNOWN이고, NULL <> NULL도 UNKNOWN입니다. CASE WHEN은 UNKNOWN을 FALSE처럼 처리하여 해당 분기를 실행하지 않습니다. NULL IS NULL만이 TRUE를 반환합니다. 따라서 세 번째 WHEN 절이 실행되어 "NULL이다"가 출력됩니다.',
-    options: [
-      '같다',
-      '다르다',
-      'NULL이다',
-      '알수없다',
-    ],
+    options: ['같다', '다르다', 'NULL이다', '알수없다'],
     points: 10,
   },
   {
     id: 'exam10_p19',
     title: '19. 날짜 함수 조합 문제',
     description:
-      '다음 SQL의 실행 결과는? (Oracle 기준)\n\nSELECT TO_CHAR(\n         ADD_MONTHS(LAST_DAY(TO_DATE(\'20250215\', \'YYYYMMDD\')), -1) + 1,\n         \'YYYY-MM-DD\'\n       ) AS 결과\nFROM DUAL;',
+      "다음 SQL의 실행 결과는? (Oracle 기준)\n\nSELECT TO_CHAR(\n         ADD_MONTHS(LAST_DAY(TO_DATE('20250215', 'YYYYMMDD')), -1) + 1,\n         'YYYY-MM-DD'\n       ) AS 결과\nFROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '함수',
     correctRate: 22,
     answer: '2',
     explanation:
-      '단계별 계산: 1) TO_DATE(\'20250215\', \'YYYYMMDD\') → 2025-02-15. 2) LAST_DAY(2025-02-15) → 2025-02-28 (2025년은 평년). 3) ADD_MONTHS(2025-02-28, -1) → 2025-01-31 (1개월 전). ADD_MONTHS는 말일에서 1개월 전이면 이전 달 말일을 반환합니다. 4) 2025-01-31 + 1 → 2025-02-01. 최종 결과: 2025-02-01.',
-    options: [
-      '2025-01-31',
-      '2025-02-01',
-      '2025-02-28',
-      '2025-01-28',
-    ],
+      "단계별 계산: 1) TO_DATE('20250215', 'YYYYMMDD') → 2025-02-15. 2) LAST_DAY(2025-02-15) → 2025-02-28 (2025년은 평년). 3) ADD_MONTHS(2025-02-28, -1) → 2025-01-31 (1개월 전). ADD_MONTHS는 말일에서 1개월 전이면 이전 달 말일을 반환합니다. 4) 2025-01-31 + 1 → 2025-02-01. 최종 결과: 2025-02-01.",
+    options: ['2025-01-31', '2025-02-01', '2025-02-28', '2025-01-28'],
     points: 10,
   },
   {
     id: 'exam10_p20',
     title: '20. DECODE와 중첩 CASE 변환',
     description:
-      '다음 DECODE 문과 동일한 결과를 반환하는 CASE 문은?\n\nSELECT DECODE(등급, \'A\', DECODE(구분, \'내부\', 1000, \'외부\', 2000, 500),\n                    \'B\', DECODE(구분, \'내부\', 800, 300),\n                    100) AS 결과\nFROM 거래처;',
+      "다음 DECODE 문과 동일한 결과를 반환하는 CASE 문은?\n\nSELECT DECODE(등급, 'A', DECODE(구분, '내부', 1000, '외부', 2000, 500),\n                    'B', DECODE(구분, '내부', 800, 300),\n                    100) AS 결과\nFROM 거래처;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '함수',
@@ -405,10 +379,10 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     explanation:
       'DECODE는 중첩될 수 있으며, 각 DECODE의 마지막 인자는 기본값입니다. 등급=A이고 구분=내부이면 1000, 구분=외부이면 2000, 그 외 500. 등급=B이고 구분=내부이면 800, 그 외 300. 등급이 A, B 모두 아니면 100. 이를 CASE로 변환하면 중첩 CASE WHEN 구조가 됩니다.',
     options: [
-      'CASE WHEN 등급=\'A\' THEN CASE WHEN 구분=\'내부\' THEN 1000 WHEN 구분=\'외부\' THEN 2000 ELSE 500 END WHEN 등급=\'B\' THEN CASE WHEN 구분=\'내부\' THEN 800 ELSE 300 END ELSE 100 END',
-      'CASE WHEN 등급=\'A\' AND 구분=\'내부\' THEN 1000 WHEN 등급=\'A\' AND 구분=\'외부\' THEN 2000 WHEN 등급=\'B\' AND 구분=\'내부\' THEN 800 ELSE 100 END',
-      'CASE 등급 WHEN \'A\' THEN 1000 WHEN \'B\' THEN 800 ELSE CASE 구분 WHEN \'내부\' THEN 500 ELSE 100 END END',
-      'CASE WHEN 등급=\'A\' THEN CASE WHEN 구분=\'내부\' THEN 1000 ELSE 2000 END WHEN 등급=\'B\' THEN CASE WHEN 구분=\'내부\' THEN 800 ELSE 300 END ELSE 100 END',
+      "CASE WHEN 등급='A' THEN CASE WHEN 구분='내부' THEN 1000 WHEN 구분='외부' THEN 2000 ELSE 500 END WHEN 등급='B' THEN CASE WHEN 구분='내부' THEN 800 ELSE 300 END ELSE 100 END",
+      "CASE WHEN 등급='A' AND 구분='내부' THEN 1000 WHEN 등급='A' AND 구분='외부' THEN 2000 WHEN 등급='B' AND 구분='내부' THEN 800 ELSE 100 END",
+      "CASE 등급 WHEN 'A' THEN 1000 WHEN 'B' THEN 800 ELSE CASE 구분 WHEN '내부' THEN 500 ELSE 100 END END",
+      "CASE WHEN 등급='A' THEN CASE WHEN 구분='내부' THEN 1000 ELSE 2000 END WHEN 등급='B' THEN CASE WHEN 구분='내부' THEN 800 ELSE 300 END ELSE 100 END",
     ],
     points: 10,
   },
@@ -416,27 +390,22 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p21',
     title: '21. 문자열 함수 조합',
     description:
-      '다음 SQL의 실행 결과는? (Oracle 기준)\n\nSELECT REPLACE(\n         SUBSTR(\n           LPAD(\'SQL\', 8, \'*#\'),\n           3, 4\n         ),\n         \'#\', \'@\'\n       ) AS 결과\nFROM DUAL;',
+      "다음 SQL의 실행 결과는? (Oracle 기준)\n\nSELECT REPLACE(\n         SUBSTR(\n           LPAD('SQL', 8, '*#'),\n           3, 4\n         ),\n         '#', '@'\n       ) AS 결과\nFROM DUAL;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '함수',
     correctRate: 40,
     answer: '3',
     explanation:
-      '단계별 계산: 1) LPAD(\'SQL\', 8, \'*#\') → 8자리로 왼쪽 채움. \'SQL\'은 3자이므로 5자를 \'*#\' 반복으로 채움: \'*#*#*SQL\'. 2) SUBSTR(\'*#*#*SQL\', 3, 4) → 3번째 위치부터 4글자: \'*#*S\'. 3) REPLACE(\'*#*S\', \'#\', \'@\') → \'*@*S\'. 최종 결과: \'*@*S\'.',
-    options: [
-      '*#*S',
-      '**@S',
-      '*@*S',
-      '#*@S',
-    ],
+      "단계별 계산: 1) LPAD('SQL', 8, '*#') → 8자리로 왼쪽 채움. 'SQL'은 3자이므로 5자를 '*#' 반복으로 채움: '*#*#*SQL'. 2) SUBSTR('*#*#*SQL', 3, 4) → 3번째 위치부터 4글자: '*#*S'. 3) REPLACE('*#*S', '#', '@') → '*@*S'. 최종 결과: '*@*S'.",
+    options: ['*#*S', '**@S', '*@*S', '#*@S'],
     points: 10,
   },
   {
     id: 'exam10_p22',
     title: '22. NVL, NVL2, NULLIF 함수의 구분',
     description:
-      '다음 SQL의 실행 결과로 올바른 것은?\n\n[직급] 테이블\n사번 | 현재직급 | 이전직급\n101  | 과장    | 대리\n102  | 부장    | NULL\n103  | NULL    | 차장\n104  | 대리    | 대리\n\nSELECT 사번,\n       NVL2(이전직급, \'승진\', \'신규\') AS 구분,\n       NULLIF(현재직급, 이전직급) AS 비교결과\nFROM 직급;',
+      "다음 SQL의 실행 결과로 올바른 것은?\n\n[직급] 테이블\n사번 | 현재직급 | 이전직급\n101  | 과장    | 대리\n102  | 부장    | NULL\n103  | NULL    | 차장\n104  | 대리    | 대리\n\nSELECT 사번,\n       NVL2(이전직급, '승진', '신규') AS 구분,\n       NULLIF(현재직급, 이전직급) AS 비교결과\nFROM 직급;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: '함수',
@@ -464,12 +433,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       '단계별 계산: 1) TRUNC(15.789, -1): 소수점 기준 -1자리(일의 자리)에서 절삭 → 10. 2) MOD(-17, 5): Oracle에서 MOD는 피제수의 부호를 따름. -17 = 5*(-4) + 3이므로... 실제로 -17/5 = -3 나머지 -2. MOD(-17, 5) = -17 - 5*TRUNC(-17/5) = -17 - 5*(-3) = -17 + 15 = -2. 3) CEIL(-3.2): -3.2보다 크거나 같은 최소 정수 → -3. 최종: 10 + (-2) + (-3) = 5.',
-    options: [
-      '3',
-      '7',
-      '8',
-      '5',
-    ],
+    options: ['3', '7', '8', '5'],
     points: 10,
   },
   // --- DML (24~28) ---
@@ -477,7 +441,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p24',
     title: '24. INSERT 서브쿼리와 컬럼 매핑',
     description:
-      '다음 SQL 실행 시 발생하는 결과로 올바른 것은?\n\n[월별매출요약] 테이블: 연월(VARCHAR2), 총매출(NUMBER), 건수(NUMBER)\n[일별매출] 테이블: 매출일(DATE), 매출액(NUMBER), 고객ID(VARCHAR2)\n\nINSERT INTO 월별매출요약 (연월, 총매출, 건수)\nSELECT TO_CHAR(매출일, \'YYYYMM\'),\n       SUM(매출액),\n       COUNT(*)\nFROM 일별매출\nWHERE 매출일 >= TO_DATE(\'20250101\', \'YYYYMMDD\')\n  AND 매출일 < TO_DATE(\'20250401\', \'YYYYMMDD\')\nGROUP BY TO_CHAR(매출일, \'YYYYMM\');',
+      "다음 SQL 실행 시 발생하는 결과로 올바른 것은?\n\n[월별매출요약] 테이블: 연월(VARCHAR2), 총매출(NUMBER), 건수(NUMBER)\n[일별매출] 테이블: 매출일(DATE), 매출액(NUMBER), 고객ID(VARCHAR2)\n\nINSERT INTO 월별매출요약 (연월, 총매출, 건수)\nSELECT TO_CHAR(매출일, 'YYYYMM'),\n       SUM(매출액),\n       COUNT(*)\nFROM 일별매출\nWHERE 매출일 >= TO_DATE('20250101', 'YYYYMMDD')\n  AND 매출일 < TO_DATE('20250401', 'YYYYMMDD')\nGROUP BY TO_CHAR(매출일, 'YYYYMM');",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DML',
@@ -517,20 +481,15 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p26',
     title: '26. UPDATE와 서브쿼리의 상관관계',
     description:
-      '다음 UPDATE 문 실행 후 [영업실적] 테이블에서 사원번호 E03의 실적등급 값은?\n\n[영업실적] 테이블\n사원번호 | 매출합계 | 실적등급\nE01      | 5000     | NULL\nE02      | 3000     | NULL\nE03      | 8000     | NULL\nE04      | 1500     | NULL\n\nUPDATE 영업실적\nSET 실적등급 = (\n  SELECT CASE\n           WHEN 순위 <= 1 THEN \'S\'\n           WHEN 순위 <= 2 THEN \'A\'\n           ELSE \'B\'\n         END\n  FROM (\n    SELECT 사원번호,\n           RANK() OVER (ORDER BY 매출합계 DESC) AS 순위\n    FROM 영업실적\n  ) R\n  WHERE R.사원번호 = 영업실적.사원번호\n);',
+      "다음 UPDATE 문 실행 후 [영업실적] 테이블에서 사원번호 E03의 실적등급 값은?\n\n[영업실적] 테이블\n사원번호 | 매출합계 | 실적등급\nE01      | 5000     | NULL\nE02      | 3000     | NULL\nE03      | 8000     | NULL\nE04      | 1500     | NULL\n\nUPDATE 영업실적\nSET 실적등급 = (\n  SELECT CASE\n           WHEN 순위 <= 1 THEN 'S'\n           WHEN 순위 <= 2 THEN 'A'\n           ELSE 'B'\n         END\n  FROM (\n    SELECT 사원번호,\n           RANK() OVER (ORDER BY 매출합계 DESC) AS 순위\n    FROM 영업실적\n  ) R\n  WHERE R.사원번호 = 영업실적.사원번호\n);",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'DML',
     correctRate: 32,
     answer: '1',
     explanation:
-      '인라인 뷰에서 매출합계 기준 내림차순 RANK: E03(8000)=1위, E01(5000)=2위, E02(3000)=3위, E04(1500)=4위. E03의 순위는 1이므로 CASE 조건 \'순위 <= 1\'에 해당하여 \'S\'가 됩니다. 상관 서브쿼리로 각 사원의 사원번호를 매칭하여 해당 등급을 UPDATE합니다.',
-    options: [
-      'S',
-      'A',
-      'B',
-      'NULL',
-    ],
+      "인라인 뷰에서 매출합계 기준 내림차순 RANK: E03(8000)=1위, E01(5000)=2위, E02(3000)=3위, E04(1500)=4위. E03의 순위는 1이므로 CASE 조건 '순위 <= 1'에 해당하여 'S'가 됩니다. 상관 서브쿼리로 각 사원의 사원번호를 매칭하여 해당 등급을 UPDATE합니다.",
+    options: ['S', 'A', 'B', 'NULL'],
     points: 10,
   },
   {
@@ -545,12 +504,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'EXISTS 서브쿼리는 수강신청의 각 행에 대해 폐강과목 테이블에 동일 과목코드가 존재하는지 확인합니다. CS102는 폐강과목에 존재 → R2 삭제. CS104도 폐강과목에 존재 → R5 삭제. CS101, CS103은 폐강과목에 없으므로 R1, R3, R4는 유지. 총 2건 삭제.',
-    options: [
-      '1건',
-      '2건',
-      '3건',
-      '5건 (전체)',
-    ],
+    options: ['1건', '2건', '3건', '5건 (전체)'],
     points: 10,
   },
   {
@@ -618,7 +572,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p31',
     title: '31. CASCADE 옵션과 참조 무결성',
     description:
-      '다음 DDL에서 부서 테이블의 D10 행을 DELETE할 때 발생하는 결과로 올바른 것은?\n\nCREATE TABLE 부서 (\n  부서코드 CHAR(3) PRIMARY KEY,\n  부서명   VARCHAR2(50)\n);\n\nCREATE TABLE 사원 (\n  사원번호 NUMBER PRIMARY KEY,\n  사원명   VARCHAR2(30),\n  부서코드 CHAR(3),\n  CONSTRAINT fk_dept FOREIGN KEY (부서코드)\n    REFERENCES 부서(부서코드)\n    ON DELETE SET NULL\n);\n\n-- 데이터: 부서(D10, 영업부), 사원(1, 김영업, D10), 사원(2, 박영업, D10)\n\nDELETE FROM 부서 WHERE 부서코드 = \'D10\';',
+      "다음 DDL에서 부서 테이블의 D10 행을 DELETE할 때 발생하는 결과로 올바른 것은?\n\nCREATE TABLE 부서 (\n  부서코드 CHAR(3) PRIMARY KEY,\n  부서명   VARCHAR2(50)\n);\n\nCREATE TABLE 사원 (\n  사원번호 NUMBER PRIMARY KEY,\n  사원명   VARCHAR2(30),\n  부서코드 CHAR(3),\n  CONSTRAINT fk_dept FOREIGN KEY (부서코드)\n    REFERENCES 부서(부서코드)\n    ON DELETE SET NULL\n);\n\n-- 데이터: 부서(D10, 영업부), 사원(1, 김영업, D10), 사원(2, 박영업, D10)\n\nDELETE FROM 부서 WHERE 부서코드 = 'D10';",
     type: 'multiple_choice',
     difficulty: 'easy',
     category: 'DDL',
@@ -637,8 +591,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
   {
     id: 'exam10_p32',
     title: '32. 인덱스 생성과 활용',
-    description:
-      '다음 중 인덱스 설계에 대한 설명으로 가장 올바르지 않은 것은?',
+    description: '다음 중 인덱스 설계에 대한 설명으로 가장 올바르지 않은 것은?',
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'DDL',
@@ -667,12 +620,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '1',
     explanation:
       '상관 서브쿼리에서 각 항공편에 대해 예약 테이블에서 해당 편명의 총 승객수를 계산합니다. KE901: SUM=150 (200 이하 → FALSE), KE902: SUM=280+190=470 (200 초과 → TRUE), KE903: 예약 없음 → SUM은 NULL, HAVING 조건 불만족 → FALSE, KE904: SUM=50 (200 이하 → FALSE). EXISTS는 서브쿼리가 행을 반환하면 TRUE입니다. HAVING 없이 WHERE만 있었다면 다르지만, HAVING SUM > 200을 만족하는 것은 KE902뿐. 따라서 1건 출력: KE902-LAX.',
-    options: [
-      '1건 (KE902)',
-      '2건 (KE902, KE904)',
-      '3건 (KE901, KE902, KE904)',
-      '0건',
-    ],
+    options: ['1건 (KE902)', '2건 (KE902, KE904)', '3건 (KE901, KE902, KE904)', '0건'],
     points: 10,
   },
   {
@@ -699,7 +647,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p35',
     title: '35. 스칼라 서브쿼리의 제약과 NULL',
     description:
-      '다음 SQL에서 화물코드 \'FG05\'에 대한 출력 결과로 올바른 것은?\n\n[화물] 테이블\n화물코드 | 화물명   | 창고ID\nFG01     | 전자부품 | WH1\nFG02     | 식료품   | WH2\nFG03     | 의류     | WH1\nFG04     | 가구     | WH3\nFG05     | 화학물   | WH9\n\n[창고] 테이블\n창고ID | 창고명     | 관리자\nWH1    | 중앙창고   | 김관리\nWH2    | 냉동창고   | 이관리\nWH3    | 대형창고   | 박관리\n\nSELECT H.화물코드, H.화물명,\n       (SELECT C.창고명 FROM 창고 C WHERE C.창고ID = H.창고ID) AS 보관창고\nFROM 화물 H;',
+      "다음 SQL에서 화물코드 'FG05'에 대한 출력 결과로 올바른 것은?\n\n[화물] 테이블\n화물코드 | 화물명   | 창고ID\nFG01     | 전자부품 | WH1\nFG02     | 식료품   | WH2\nFG03     | 의류     | WH1\nFG04     | 가구     | WH3\nFG05     | 화학물   | WH9\n\n[창고] 테이블\n창고ID | 창고명     | 관리자\nWH1    | 중앙창고   | 김관리\nWH2    | 냉동창고   | 이관리\nWH3    | 대형창고   | 박관리\n\nSELECT H.화물코드, H.화물명,\n       (SELECT C.창고명 FROM 창고 C WHERE C.창고ID = H.창고ID) AS 보관창고\nFROM 화물 H;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '서브쿼리',
@@ -711,7 +659,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
       '화물코드 FG05 행이 결과에서 제외된다.',
       '서브쿼리에서 매칭되는 행이 없어 오류가 발생한다.',
       'FG05, 화학물, NULL로 출력된다.',
-      'FG05, 화학물, 빈 문자열(\'\')로 출력된다.',
+      "FG05, 화학물, 빈 문자열('')로 출력된다.",
     ],
     points: 10,
   },
@@ -727,19 +675,14 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       '서브쿼리에서 과목별 최고 점수: 수학 MAX=95, 영어 MAX=95. 다중 컬럼 IN 조건으로 (과목, 점수) 쌍이 (수학, 95) 또는 (영어, 95)인 행을 찾습니다. ST01의 수학 95 → 매칭, ST02의 영어 95 → 매칭. 총 2건 출력.',
-    options: [
-      '1건',
-      '2건',
-      '3건',
-      '6건',
-    ],
+    options: ['1건', '2건', '3건', '6건'],
     points: 10,
   },
   {
     id: 'exam10_p37',
     title: '37. WITH 절(CTE)의 재귀적 사용 제한',
     description:
-      '다음 SQL에 대한 설명으로 올바르지 않은 것은?\n\nWITH 분기매출 AS (\n  SELECT 지점코드,\n         CASE WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 1 AND 3 THEN \'Q1\'\n              WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 4 AND 6 THEN \'Q2\'\n              WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 7 AND 9 THEN \'Q3\'\n              ELSE \'Q4\'\n         END AS 분기,\n         SUM(매출액) AS 분기매출액\n  FROM 매출\n  GROUP BY 지점코드,\n           CASE WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 1 AND 3 THEN \'Q1\'\n                WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 4 AND 6 THEN \'Q2\'\n                WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 7 AND 9 THEN \'Q3\'\n                ELSE \'Q4\'\n           END\n)\nSELECT A.지점코드, A.분기, A.분기매출액,\n       ROUND(A.분기매출액 / B.연매출 * 100, 1) AS 비중\nFROM 분기매출 A\nJOIN (\n  SELECT 지점코드, SUM(분기매출액) AS 연매출\n  FROM 분기매출\n  GROUP BY 지점코드\n) B ON A.지점코드 = B.지점코드;',
+      "다음 SQL에 대한 설명으로 올바르지 않은 것은?\n\nWITH 분기매출 AS (\n  SELECT 지점코드,\n         CASE WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 1 AND 3 THEN 'Q1'\n              WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 4 AND 6 THEN 'Q2'\n              WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 7 AND 9 THEN 'Q3'\n              ELSE 'Q4'\n         END AS 분기,\n         SUM(매출액) AS 분기매출액\n  FROM 매출\n  GROUP BY 지점코드,\n           CASE WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 1 AND 3 THEN 'Q1'\n                WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 4 AND 6 THEN 'Q2'\n                WHEN EXTRACT(MONTH FROM 매출일) BETWEEN 7 AND 9 THEN 'Q3'\n                ELSE 'Q4'\n           END\n)\nSELECT A.지점코드, A.분기, A.분기매출액,\n       ROUND(A.분기매출액 / B.연매출 * 100, 1) AS 비중\nFROM 분기매출 A\nJOIN (\n  SELECT 지점코드, SUM(분기매출액) AS 연매출\n  FROM 분기매출\n  GROUP BY 지점코드\n) B ON A.지점코드 = B.지점코드;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '서브쿼리',
@@ -768,12 +711,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       '업체별 집계: 한진: COUNT(*)=2, 배송지역수=2, AVG=4000 → HAVING 만족(2>=2 AND 4000>3000). CJ: COUNT(*)=2, 배송지역수=1, AVG=3000 → HAVING 불만족(3000은 >3000 아님). 로젠: COUNT(*)=3, 배송지역수=3, AVG=4333 → HAVING 만족(3>=2 AND 4333>3000). 총 2건 출력: 한진, 로젠.',
-    options: [
-      '1건 (로젠)',
-      '2건 (한진, 로젠)',
-      '3건 (전체)',
-      '0건',
-    ],
+    options: ['1건 (로젠)', '2건 (한진, 로젠)', '3건 (전체)', '0건'],
     points: 10,
   },
   {
@@ -788,12 +726,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'ROLLUP(매장, 카테고리)는 다음 수준의 그룹을 생성합니다: 1) (매장, 카테고리) 상세: 강남-의류, 강남-식품, 홍대-의류, 홍대-식품, 홍대-가전 → 5행. 2) (매장) 소계: 강남 소계, 홍대 소계 → 2행. 3) () 전체합계: 1행. 총 5 + 2 + 1 = 8행.',
-    options: [
-      '5행',
-      '7행',
-      '8행',
-      '9행',
-    ],
+    options: ['5행', '7행', '8행', '9행'],
     points: 10,
   },
   {
@@ -820,7 +753,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p41',
     title: '41. GROUP BY에서 표현식 사용',
     description:
-      '다음 SQL의 실행 결과로 올바른 것은?\n\n[주문] 테이블\n주문번호 | 주문금액 | 주문일시\n1001     | 15000    | 2025-03-01 09:30\n1002     | 8000     | 2025-03-01 14:20\n1003     | 22000    | 2025-03-02 11:00\n1004     | 5000     | 2025-03-02 16:45\n1005     | 35000    | 2025-03-01 20:10\n\nSELECT TO_CHAR(주문일시, \'YYYY-MM-DD\') AS 주문일,\n       COUNT(*) AS 건수,\n       SUM(CASE WHEN 주문금액 >= 10000 THEN 1 ELSE 0 END) AS 만원이상건수\nFROM 주문\nGROUP BY TO_CHAR(주문일시, \'YYYY-MM-DD\')\nHAVING SUM(주문금액) > 20000;',
+      "다음 SQL의 실행 결과로 올바른 것은?\n\n[주문] 테이블\n주문번호 | 주문금액 | 주문일시\n1001     | 15000    | 2025-03-01 09:30\n1002     | 8000     | 2025-03-01 14:20\n1003     | 22000    | 2025-03-02 11:00\n1004     | 5000     | 2025-03-02 16:45\n1005     | 35000    | 2025-03-01 20:10\n\nSELECT TO_CHAR(주문일시, 'YYYY-MM-DD') AS 주문일,\n       COUNT(*) AS 건수,\n       SUM(CASE WHEN 주문금액 >= 10000 THEN 1 ELSE 0 END) AS 만원이상건수\nFROM 주문\nGROUP BY TO_CHAR(주문일시, 'YYYY-MM-DD')\nHAVING SUM(주문금액) > 20000;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: 'GROUP BY',
@@ -841,7 +774,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p42',
     title: '42. LAG/LEAD 함수와 NULL 기본값',
     description:
-      '다음 SQL의 실행 결과에서 센서ID \'TMP01\'의 첫 번째 행의 이전온도 값은?\n\n[센서측정] 테이블\n센서ID | 측정시각         | 온도\nTMP01  | 2025-01-01 00:00 | 22.5\nTMP01  | 2025-01-01 01:00 | 23.1\nTMP01  | 2025-01-01 02:00 | 21.8\nTMP02  | 2025-01-01 00:00 | 18.0\nTMP02  | 2025-01-01 01:00 | 17.5\n\nSELECT 센서ID, 측정시각, 온도,\n       LAG(온도, 1, 0) OVER (\n         PARTITION BY 센서ID ORDER BY 측정시각\n       ) AS 이전온도\nFROM 센서측정;',
+      "다음 SQL의 실행 결과에서 센서ID 'TMP01'의 첫 번째 행의 이전온도 값은?\n\n[센서측정] 테이블\n센서ID | 측정시각         | 온도\nTMP01  | 2025-01-01 00:00 | 22.5\nTMP01  | 2025-01-01 01:00 | 23.1\nTMP01  | 2025-01-01 02:00 | 21.8\nTMP02  | 2025-01-01 00:00 | 18.0\nTMP02  | 2025-01-01 01:00 | 17.5\n\nSELECT 센서ID, 측정시각, 온도,\n       LAG(온도, 1, 0) OVER (\n         PARTITION BY 센서ID ORDER BY 측정시각\n       ) AS 이전온도\nFROM 센서측정;",
     type: 'multiple_choice',
     difficulty: 'medium',
     category: '윈도우함수',
@@ -849,12 +782,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'LAG(온도, 1, 0)는 파티션 내에서 이전 1행의 온도 값을 반환하며, 이전 행이 없을 때 기본값 0을 반환합니다. TMP01 파티션에서 첫 번째 행(00:00)은 이전 행이 없으므로 기본값 0이 반환됩니다. 세 번째 인자를 지정하지 않으면 NULL이 반환되지만, 여기서는 0을 명시했으므로 0이 됩니다.',
-    options: [
-      'NULL',
-      '22.5',
-      '0',
-      '23.1',
-    ],
+    options: ['NULL', '22.5', '0', '23.1'],
     points: 10,
   },
   {
@@ -889,12 +817,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       'NTILE(3)은 7명을 3개 그룹으로 나눕니다. 7 ÷ 3 = 2 나머지 1이므로, 첫 번째 그룹에 3명, 나머지 두 그룹에 2명씩 배분됩니다. 점수 내림차순: 등급1(A=98, B=95, C=90), 등급2(D=87, E=82), 등급3(F=78, G=70). 직원 G는 등급 3입니다.',
-    options: [
-      '1',
-      '2',
-      '3',
-      'NULL',
-    ],
+    options: ['1', '2', '3', 'NULL'],
     points: 10,
   },
   {
@@ -941,8 +864,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
   {
     id: 'exam10_p47',
     title: '47. ORDER BY와 SELECT 컬럼의 관계',
-    description:
-      '다음 중 Oracle에서 오류가 발생하는 SQL은?',
+    description: '다음 중 Oracle에서 오류가 발생하는 SQL은?',
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'ORDER BY',
@@ -971,12 +893,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '4',
     explanation:
       'UNION ALL은 중복을 제거하지 않고 모든 행을 결합합니다. 상반기 3건 + 하반기 3건 = 총 6건. C02(2000)이 양쪽에 존재하지만 UNION ALL이므로 중복 제거 없이 2건 모두 출력됩니다. UNION(중복 제거)을 사용했다면 C02-2000이 동일하므로 5건이 출력됩니다.',
-    options: [
-      '3행',
-      '4행',
-      '5행',
-      '6행',
-    ],
+    options: ['3행', '4행', '5행', '6행'],
     points: 10,
   },
   {
@@ -991,12 +908,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '2',
     explanation:
       'SQL에서 집합 연산자는 위에서 아래로 순차적으로 처리됩니다(동일 우선순위). 1단계 INTERSECT: 프리미엄회원 ∩ 이벤트참여 = {M02, M03}. 2단계 MINUS: {M02, M03} - 쿠폰수령{M01, M03, M05} = {M02}. M03은 쿠폰수령에 포함되어 제거됩니다. 최종 결과: M02 1건.',
-    options: [
-      'M02, M03',
-      'M02',
-      'M03',
-      'M02, M03, M05',
-    ],
+    options: ['M02, M03', 'M02', 'M03', 'M02, M03, M05'],
     points: 10,
   },
   // --- TCL (50) ---
@@ -1004,7 +916,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     id: 'exam10_p50',
     title: '50. SAVEPOINT와 부분 ROLLBACK의 동작',
     description:
-      '다음 트랜잭션 실행 후 [잔액] 테이블에서 계좌 ACC01의 최종 잔액은?\n\n-- 초기 상태: ACC01 잔액 = 10000\n\nUPDATE 잔액 SET 금액 = 금액 - 3000 WHERE 계좌번호 = \'ACC01\';  -- 7000\nSAVEPOINT SP1;\n\nUPDATE 잔액 SET 금액 = 금액 - 2000 WHERE 계좌번호 = \'ACC01\';  -- 5000\nSAVEPOINT SP2;\n\nUPDATE 잔액 SET 금액 = 금액 - 4000 WHERE 계좌번호 = \'ACC01\';  -- 1000\n\nROLLBACK TO SP1;\n\nUPDATE 잔액 SET 금액 = 금액 + 1000 WHERE 계좌번호 = \'ACC01\';\n\nCOMMIT;',
+      "다음 트랜잭션 실행 후 [잔액] 테이블에서 계좌 ACC01의 최종 잔액은?\n\n-- 초기 상태: ACC01 잔액 = 10000\n\nUPDATE 잔액 SET 금액 = 금액 - 3000 WHERE 계좌번호 = 'ACC01';  -- 7000\nSAVEPOINT SP1;\n\nUPDATE 잔액 SET 금액 = 금액 - 2000 WHERE 계좌번호 = 'ACC01';  -- 5000\nSAVEPOINT SP2;\n\nUPDATE 잔액 SET 금액 = 금액 - 4000 WHERE 계좌번호 = 'ACC01';  -- 1000\n\nROLLBACK TO SP1;\n\nUPDATE 잔액 SET 금액 = 금액 + 1000 WHERE 계좌번호 = 'ACC01';\n\nCOMMIT;",
     type: 'multiple_choice',
     difficulty: 'hard',
     category: 'TCL',
@@ -1012,12 +924,7 @@ export const EXAM_10_PROBLEMS: Problem[] = [
     answer: '3',
     explanation:
       '단계별 추적: 1) UPDATE -3000 → 잔액 7000. 2) SAVEPOINT SP1 설정. 3) UPDATE -2000 → 잔액 5000. 4) SAVEPOINT SP2 설정. 5) UPDATE -4000 → 잔액 1000. 6) ROLLBACK TO SP1 → SP1 이후의 모든 작업(SP2 포함)이 취소되어 잔액이 SP1 시점인 7000으로 복원됨. SP2도 무효화됩니다. 7) UPDATE +1000 → 잔액 8000. 8) COMMIT → 최종 잔액 8000.',
-    options: [
-      '5000',
-      '7000',
-      '8000',
-      '1000',
-    ],
+    options: ['5000', '7000', '8000', '1000'],
     points: 10,
   },
 ];
