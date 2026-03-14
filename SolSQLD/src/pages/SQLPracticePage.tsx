@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   Database,
@@ -12,6 +12,7 @@ import {
 import CodeMirror from '@uiw/react-codemirror';
 import { sql } from '@codemirror/lang-sql';
 import { oneDark } from '@codemirror/theme-one-dark';
+import { keymap } from '@codemirror/view';
 import { logEvent } from '../utils/eventLogger';
 import { useAuth } from '../contexts/AuthContext';
 import type { SQLResult } from '../types';
@@ -62,24 +63,21 @@ function executeMockSQL(query: string): SQLResult {
   };
 }
 
-/** 수평/수직 리사이즈 훅 */
-function useResizable(
+/** 드래그 리사이즈 핸들러 훅 — state는 호출측에서 관리 */
+function useResizeDrag(
+  containerRef: React.RefObject<HTMLDivElement | null>,
   direction: 'horizontal' | 'vertical',
-  initialRatio: number,
+  setRatio: React.Dispatch<React.SetStateAction<number>>,
   min: number,
   max: number
-) {
-  const [ratio, setRatio] = useState(initialRatio);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
-
-  const onMouseDown = useCallback(
+): (e: React.MouseEvent) => void {
+  return useCallback(
     (e: React.MouseEvent) => {
       e.preventDefault();
-      dragging.current = true;
+      let dragging = true;
 
       const onMouseMove = (ev: MouseEvent) => {
-        if (!dragging.current || !containerRef.current) return;
+        if (!dragging || !containerRef.current) return;
         const rect = containerRef.current.getBoundingClientRect();
         let newRatio: number;
         if (direction === 'horizontal') {
@@ -91,7 +89,7 @@ function useResizable(
       };
 
       const onMouseUp = () => {
-        dragging.current = false;
+        dragging = false;
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
         document.body.style.cursor = '';
@@ -103,10 +101,8 @@ function useResizable(
       document.addEventListener('mousemove', onMouseMove);
       document.addEventListener('mouseup', onMouseUp);
     },
-    [direction, min, max]
+    [containerRef, direction, setRatio, min, max]
   );
-
-  return { ratio, containerRef, onMouseDown };
 }
 
 export default function SQLPracticePage() {
@@ -122,10 +118,14 @@ export default function SQLPracticePage() {
   const [showHint, setShowHint] = useState(false);
   const [exitTarget, setExitTarget] = useState<string | null>(null);
 
-  // 리사이즈: 좌우 (문제 | 코드+결과)
-  const hResize = useResizable('horizontal', 0.42, 0.2, 0.7);
-  // 리사이즈: 상하 (코드 | 결과) — 우측 패널 내부
-  const vResize = useResizable('vertical', 0.55, 0.2, 0.85);
+  // 리사이즈 state + refs — ESLint react-hooks/refs 호환을 위해 분리
+  const [hRatio, setHRatio] = useState(0.42);
+  const hContainerRef = useRef<HTMLDivElement>(null);
+  const hOnMouseDown = useResizeDrag(hContainerRef, 'horizontal', setHRatio, 0.2, 0.7);
+
+  const [vRatio, setVRatio] = useState(0.55);
+  const vContainerRef = useRef<HTMLDivElement>(null);
+  const vOnMouseDown = useResizeDrag(vContainerRef, 'vertical', setVRatio, 0.2, 0.85);
 
   const handleExecute = useCallback(() => {
     if (!query.trim()) return;
@@ -136,6 +136,24 @@ export default function SQLPracticePage() {
       setLoading(false);
     }, 300);
   }, [query, id, user?.id]);
+
+  // CodeMirror extensions (Ctrl+Enter 단축키 포함)
+  const editorExtensions = useMemo(
+    () => [
+      sql(),
+      keymap.of([
+        {
+          key: 'Ctrl-Enter',
+          mac: 'Cmd-Enter',
+          run: () => {
+            handleExecute();
+            return true;
+          },
+        },
+      ]),
+    ],
+    [handleExecute]
+  );
 
   const handleSubmit = useCallback(() => {
     if (!problem || !query.trim()) return;
@@ -197,11 +215,11 @@ export default function SQLPracticePage() {
       </div>
 
       {/* 메인 3패널 레이아웃 */}
-      <div ref={hResize.containerRef} className="flex flex-1 min-h-0">
+      <div ref={hContainerRef} className="flex flex-1 min-h-0">
         {/* 좌: 문제 설명 */}
         <div
           className="overflow-y-auto bg-white border-r border-slate-200"
-          style={{ width: `${hResize.ratio * 100}%` }}
+          style={{ width: `${hRatio * 100}%` }}
         >
           <div className="p-6">
             <h1 className="text-lg font-bold text-sqld-navy mb-4">{problem.title}</h1>
@@ -251,7 +269,7 @@ export default function SQLPracticePage() {
 
         {/* 좌우 리사이즈 핸들 */}
         <div
-          onMouseDown={hResize.onMouseDown}
+          onMouseDown={hOnMouseDown}
           className="w-1.5 shrink-0 bg-slate-200 hover:bg-primary-400 cursor-col-resize flex items-center justify-center transition-colors group"
         >
           <GripVertical className="w-3 h-3 text-slate-400 group-hover:text-white" />
@@ -259,14 +277,14 @@ export default function SQLPracticePage() {
 
         {/* 우: 코드 에디터 + 결과 */}
         <div
-          ref={vResize.containerRef}
+          ref={vContainerRef}
           className="flex flex-col min-w-0"
-          style={{ width: `${(1 - hResize.ratio) * 100}%` }}
+          style={{ width: `${(1 - hRatio) * 100}%` }}
         >
           {/* 우상: 코드 에디터 */}
           <div
             className="flex flex-col min-h-0 overflow-hidden"
-            style={{ height: `${vResize.ratio * 100}%` }}
+            style={{ height: `${vRatio * 100}%` }}
           >
             {/* 에디터 헤더 */}
             <div className="shrink-0 flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
@@ -295,15 +313,9 @@ export default function SQLPracticePage() {
               <CodeMirror
                 value={query}
                 height="100%"
-                extensions={[sql()]}
+                extensions={editorExtensions}
                 theme={oneDark}
                 onChange={setQuery}
-                onKeyDown={(e) => {
-                  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-                    e.preventDefault();
-                    handleExecute();
-                  }
-                }}
                 basicSetup={{
                   lineNumbers: true,
                   foldGutter: false,
@@ -316,7 +328,7 @@ export default function SQLPracticePage() {
 
           {/* 상하 리사이즈 핸들 */}
           <div
-            onMouseDown={vResize.onMouseDown}
+            onMouseDown={vOnMouseDown}
             className="h-1.5 shrink-0 bg-slate-200 hover:bg-primary-400 cursor-row-resize flex items-center justify-center transition-colors group"
           >
             <GripHorizontal className="w-3 h-3 text-slate-400 group-hover:text-white" />
@@ -325,7 +337,7 @@ export default function SQLPracticePage() {
           {/* 우하: 결과 출력 */}
           <div
             className="flex flex-col min-h-0 overflow-hidden bg-white"
-            style={{ height: `${(1 - vResize.ratio) * 100}%` }}
+            style={{ height: `${(1 - vRatio) * 100}%` }}
           >
             <div className="shrink-0 flex items-center justify-between px-4 py-2 bg-slate-50 border-b border-slate-200">
               <span className="text-xs font-semibold text-slate-600">
